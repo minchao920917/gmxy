@@ -1,0 +1,32 @@
+/* index.wxss */
+
+.singepage .title {
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 5px 10px;
+}
+
+.singepage .tips {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px 15px 10px;
+  color: #999;
+}
+
+.singepage .tips image {
+  width: 20px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+.detail {
+  padding: 20rpx;
+  line-height: 80rpx;
+  font-size:1rem;
+}
+
+.detail p{ padding: 10rpx 0;}
+
+img,image{ max-width: 100%; height: 250rpx;}

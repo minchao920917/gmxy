@@ -1,13 +1,48 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="main">
+  <!-- banner -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{movies}}" wx:key="index">
+      <navigator url="{{item.linkUrl}}" hover-class="navigator-hover">
+        <swiper-item>
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+        </swiper-item>
+      </navigator>
+    </block>
+  </swiper>
+
+  <!-- navs -->
+  <view class="navs">
+    <block wx:for="{{navInfo}}" wx:key='nav'>
+      <!-- <view class="list" bindtap="linkjump" data-url="{{item.linkUrl}}"> -->
+      <view class="list">
+        <navigator url="{{item.linkUrl}}" hover-class="navigator-hover">
+          <image src="{{item.imgUrl}}"></image>
+          <text>{{item.txt}}</text>
+        </navigator>
+      </view>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="shipin">
+    <view class="title">
+      <text class="sp-tit">视频学院</text>
+      <navigator class="sp-more">
+        <text>查看更多</text>
+      </navigator>
+    </view>
+    <view class="sp">
+      <video id="" class="video" src="{{video.src}}" controls binderror="videoErrorCallback">
+        <cover-view class="controls">
+          <cover-image class="img" src="{{video.img}}" />
+          <cover-view class="play" src="{{video.btn}}">
+            <cover-image src="{{video.btn}}"/>
+          </cover-view>
+        </cover-view>
+      </video>
+    </view>
   </view>
+  <!-- 底部模板 -->
+  <include src="../footer/footer.wxml" />
+
 </view>

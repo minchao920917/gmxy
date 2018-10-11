@@ -1,54 +1,119 @@
 //index.js
 //获取应用实例
-const app = getApp()
-
+var app = getApp();
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+    movies: [{
+      linkUrl: '',
+      url: 'https://i.loli.net/2018/10/11/5bbead684f511.jpg'
+    }, {
+      linkUrl: '',
+      url: 'https://i.loli.net/2018/10/11/5bbead6862d32.png'
+    }, {
+      linkUrl: '',
+      url: 'https://i.loli.net/2018/10/11/5bbead684f511.jpg'
+    }, {
+      linkUrl: '',
+      url: 'https://i.loli.net/2018/10/11/5bbead6862d32.png'
+    }],
+    navInfo: [{
+        imgUrl: '../../images/shishi.png',
+        txt: '实时播报',
+        linkUrl: '/pages/entry/index'
+      },
+      {
+        imgUrl: '../../images/news.png',
+        txt: '热门资讯',
+        linkUrl: '/pages/technology/index'
+      },
+      {
+        imgUrl: '../../images/course.png',
+        txt: '精品课程',
+        linkUrl: '/pages/graphic/index'
+      },
+      {
+        imgUrl: '../../images/product.png',
+        txt: '产品介绍',
+        linkUrl: '/pages/broader/index'
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    ],
+    video: {
+      src: 'http://1254161541.vod2.myqcloud.com/284b4cc5vodtransgzp1254161541/384989e55285890782258301412/v.f30.mp4',
+      img: '../../images/video-img.png',
+      btn:'../../images/play.png'
+
+    },
+    navFooter:[
+      {
+        imgUrl: '../../images/index.png',
+        txt: '首页',
+        active:'active',
+        linkUrl: '/pages/entry/index'
+      },
+      {
+        imgUrl: '../../images/sy_my_black.png',
+        txt: '我的',
+        active: '',
+        linkUrl: '/pages/technology/index'
+      }
+    ],
+    telicon: app.data.telicon
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+
+  //链接跳转的第二种方法
+  // linkjump: function (event){
+  //  var urls = event.currentTarget.dataset.url;
+  //   wx.navigateTo({
+  //     url: urls
+  //     })
+  // },
+
+  /**
+   * 生命周期函数--监听页面加载,获取用户基本信息
+   */
+  onLoad: function(options) {
+    // wx.getUserInfo({
+    //   success: function (res) {
+    //     var userInfo = res.userInfo //用户基本信息
+    //     var nickName = userInfo.nickName //用户名
+    //     var avatarUrl = userInfo.avatarUrl //头像链接
+    //     var gender = userInfo.gender //性别 0：未知、1：男、2：女
+    //     var province = userInfo.province //所在省
+    //     var city = userInfo.city //所在市
+    //     var country = userInfo.country //所在国家
+    //   }
+    // })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  //调用服务热线
+  PhoneCall: app.PhoneCall,
+
+  //播放视频
+  PlayVoid:function(){
+
+  },
+  //videoErrorCallback
+  videoErrorCallback: function (e) {
+    console.log('视频错误信息:' + e.detail.errMsg);
+
   }
+
 })

@@ -1,0 +1,99 @@
+/* index.wxss */
+
+.banner image {
+  width: 100%;
+  height: 81.33333vw;
+}
+
+.title {
+  display: flex;
+  border: 1px solid #ad0110;
+  width: 100%;
+  margin: 20rpx 0;
+  padding: 40rpx 0 20rpx 0;
+  box-sizing: border-box;
+  justify-content: center;
+  position: relative;
+}
+
+.title:before {
+  content: "";
+  display: block;
+  background: #fff;
+  position: absolute;
+  padding: 0 15rpx;
+  top: -10px;
+  font-size: 1rem;
+  color: #ad0110;
+}
+
+.forms {
+  padding: 20rpx;
+}
+
+.forms .title:before {
+  content: "马上免费诊股";
+}
+
+.forms .section {
+  padding: 20rpx 0 0 0;
+}
+
+.forms input {
+  height: 2.5rem;
+  font-size: 0.72rem;
+  text-align: center;
+  background: #fff3de;
+  border: 1px solid #ffa300;
+  border-radius: 6rpx;
+}
+
+.forms button {
+  background: #ad0110;
+  color: #fff;
+  height: 2.8rem;
+  border-bottom: 5rpx solid #6f0000;
+}
+
+.forms .nums {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+
+.forms .nums .red {
+  color: #b80101;
+  font-weight: bold;
+}
+
+.diagnostic {
+  padding: 20rpx;
+}
+
+.diagnostic .title:before {
+  content: "六维诊断体系";
+}
+
+.diagnostic .content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-between;
+}
+
+.diagnostic .content .list {
+  background: #cf3c49;
+  color: #fff;
+  width: 31%;
+  text-align: center;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 26rpx;
+  line-height: 34rpx;
+  border-radius: 10rpx;
+}
+
+.diagnostic .content .icon {
+  width: 72rpx;
+  height: 72rpx;
+}
+.diagnostic .content text{ display:block;}

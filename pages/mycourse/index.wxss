@@ -1,0 +1,45 @@
+/* index.wxss */
+
+.mycours scroll-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.mycours scroll-view .list-item {
+  border-bottom: 1px solid #ddd;
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  line-height: 40rpx;
+}
+
+.mycours scroll-view .list-item text {
+  display: block;
+  
+}
+.mycours scroll-view .title {
+  font-weight: bold;
+  padding: 5rpx 0;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  height: 40rpx;
+  font-size: 1rem;
+}
+
+.mycours scroll-view .dsc {
+  height: 84rpx;
+  overflow : hidden;
+  color: #999;
+}
+
+.mycours scroll-view .list-item image {
+  width: 180rpx;
+  height: 140rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}

@@ -1,0 +1,18 @@
+<!--footer.wxml-->
+<view class="footer">
+  <view class="foot-navs">
+    <block wx:for="{{navFooter}}" wx:key='nav'>
+      <view class="list">
+        <navigator url="{{item.linkUrl}}" hover-class="navigator-hover">
+          <image src="{{item.imgUrl}}"></image>
+          <text class="{{item.active}}">{{item.txt}}</text>
+        </navigator>
+      </view>
+    </block>
+    <view class="zg">
+      <navigator url="../clinic/index" hover-class="navigator-hover">
+        <image src="../../images/zhengu.gif"></image>
+      </navigator>
+    </view>
+  </view>
+</view>

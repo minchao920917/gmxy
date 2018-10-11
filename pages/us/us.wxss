@@ -1,0 +1,36 @@
+/* us.wxss */
+
+.banner {
+  position: relative;
+  height: 53.33333vw;
+}
+
+.banner .slogin {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 20%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  align-items: center;
+  padding:20px;
+  box-sizing: border-box;
+}
+
+.banner .slogin text{ border: 2px solid #fff; padding: 10px 20px; }
+
+.banner image {
+  width: 100%;
+  height: 53.33333vw;
+  vertical-align: middle;
+}
+
+.detail {
+  padding: 20rpx;
+  line-height: 44rpx;
+  color: #fff;
+  background: #71726c;
+}

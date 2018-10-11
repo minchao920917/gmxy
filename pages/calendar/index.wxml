@@ -1,0 +1,121 @@
+<!--新股日历index.wxml-->
+<view class="main">
+
+  <!-- baners -->
+  <view class="baners">
+    <view class="info">
+      <text class="tip">温馨提示： 因新股预披露实时数据，表格中新股申购提示并不代表最终数据，具体请参考交易所网站新股发行公告
+      </text>
+      <view class="today">
+        今日新股
+        <text>{{today_count}}</text>只
+      </view>
+
+    </view>
+    <image src="{{banerImg}}"></image>
+  </view>
+
+
+  <!-- 没有内容的时候的提示 -->
+  <view class='tip-none' wx:if="{{havenone}}">精彩内容，即将呈现！</view>
+
+
+  <!-- 数据列表 -->
+  <view class="datalist" wx:else>
+    <view class='update'>
+      <text>数据更新：{{today}}</text>
+    </view>
+
+
+    <!-- 循环月份 -->
+    <block wx:for="{{listdata}}" wx:key='listdata'>
+
+
+      <view class="content_bar">
+
+        <!-- line -->
+        <view class="line"></view>
+
+        <!-- times -->
+        <view class="tit_time">
+          <view class="left">
+            <text class="month">{{item.month}}</text>
+            <text class="years">/{{item.year}}</text>
+          </view>
+
+        </view>
+
+        <!-- 循环月份周期数据 -->
+        <block wx:for="{{item.m_data}}" wx:key='week'>
+
+          <view class="list">
+            <view class="infos">
+
+              <!-- times -->
+              <view class="times">
+                <view class="left">
+                  <text>{{item.date}}</text>
+                  <text class="week">{{item.week}}</text>
+                </view>
+                <text class='{{item.tag}}'>{{item.purchase}}</text>
+              </view>
+              <!-- times end -->
+
+              <!-- 循环荐股 -->
+              <block wx:for="{{item.d_data}}" wx:key='d_data'>
+                <view class="item">
+
+                  <view class="name">
+                    <text class="{{item.type}}">{{item.type_name}}</text>
+                    <text class="blod">{{item.name}}</text>
+                    <text>{{item.code}}</text>
+                  </view>
+
+                  <view class="txt">
+                    <view class="flor">
+                      <view class='ban'>
+                        <text class='name'>发行价格</text>
+                        <text>{{item.issue_price}}元 </text>
+                      </view>
+
+                      <view class='ban'>
+                        <text class='name'>市盈率</text>
+                        <text>{{item.pe_ratio}}</text>
+                      </view>
+
+                    </view>
+                    <view class="flor">
+                      <view class='ban'>
+                        <text class='name'>申购上限</text>
+                        <text>{{item.pur_limit}}万股</text>
+                      </view>
+
+                      <view class='ban'>
+                        <text class='name'>顶格市值</text>
+                        <text>{{item.market_value}}万</text>
+                      </view>
+
+                    </view>
+                  </view>
+
+                </view>
+              </block>
+              <!-- 循环荐股 end -->
+
+            </view>
+          </view>
+
+        </block>
+        <!-- 循环月份周期数据 end -->
+      </view>
+
+
+    </block>
+
+
+
+  </view>
+  <!-- 循环月份end -->
+
+
+</view>

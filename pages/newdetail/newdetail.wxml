@@ -1,0 +1,14 @@
+<!--newdetail.wxml-->
+<view class="main">
+  <view class="singepage">
+
+    <view class="title">{{title}}</view>
+    <view class='tips'>
+      <text>浏览量：{{view}}</text><text>作者：{{author}}</text>{{create_time}}
+    </view>
+    <view class="detail">
+      <rich-text nodes="{{content}}">
+      </rich-text>
+    </view>
+  </view>
+</view>

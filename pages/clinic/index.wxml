@@ -1,0 +1,54 @@
+<!--诊股index.wxml-->
+<view class="main">
+  <!-- banner -->
+  <view class="banner">
+    <image src="{{banerImg}}"></image>
+  </view>
+
+  <!-- forms-->
+  <view class="forms">
+    <form bindsubmit="formSubmit">
+
+      <text class="title">诊断你手中的潜力股</text>
+
+      <view class="section">
+        <input name="stockcode" maxlength="6" placeholder="请输入股票代码或名称" value='{{cleanval}}' />
+      </view>
+
+      <view class="section">
+        <input name="tel" maxlength="11" placeholder="请输入您的手机号" value ='{{cleanval}}'/>
+      </view>
+
+      <view class="section">
+        <button formType="submit">立即诊股</button>
+        <view class="nums">
+          <text>已有</text>  <text class="red">{{peonum}}</text>  <text>人诊股</text>
+        </view>
+      </view>
+
+    </form>
+  </view>
+
+  <!-- 六维诊断体系-->
+  <view class="diagnostic">
+
+    <text class="title">增加诊股系统精确度</text>
+
+    <view class="content">
+      <block wx:for="{{sixInfo}}" wx:key="diagnostic">
+        <view class="list">
+          <image src="{{item.icon}}" class="icon"></image>
+          <text>{{item.name}}</text>
+          <text>{{item.info}}</text>
+        </view>
+      </block>
+    </view>
+
+  </view>
+
+
+
+  <!-- 底部模板 -->
+  <include src="../footer/footer.wxml" />
+
+</view>

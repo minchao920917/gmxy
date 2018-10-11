@@ -1,0 +1,30 @@
+<!--newlist.wxml-->
+ <!-- 新闻列表模板 -->
+ 
+<template name='templates'>
+
+    <navigator url='/pages/newdetail/newdetail?id={{id}}' hover-class="navigator-hover">
+
+      <view class="enter-item" data-id="{{id}}">
+        <view class="conten">
+          <view class="left">
+            <text class="tit">{{title}}</text>
+            <text class="infos">{{desc}}</text>
+          </view>
+          <image src="{{cover}}"></image>
+        </view>
+
+
+        <view class="time">
+          <view class="sours">
+            <image src="../../images/icon_syes.png"></image>
+            <text>{{view}}</text>
+            <text>来源：{{author}}</text>
+          </view>
+          <view class="timdate">{{create_time}}</view>
+        </view>
+      </view>
+    </navigator>
+</template>
+
+

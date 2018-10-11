@@ -1,0 +1,31 @@
+<!--contact.wxml-->
+<view class="main">
+
+<!-- banner -->
+  <view class="banner">
+    <image src="{{banerImg}}"></image>
+  </view>
+  
+<!-- conlist -->
+  <view class="conlist">
+    <block wx:for="{{coninfo}}" wx:key="coninfo">
+      <view class="list">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.txt}}</text>
+      </view>
+    </block>
+  </view>
+
+<!-- map -->
+ <view class="map">
+  <map id="map" longitude="{{markers.latitude}}" latitude="{{markers.longitude}}" scale="14" markers="{{markers}}"  show-location></map>
+</view> 
+
+
+   <!-- 底部模板 -->
+  <include src="../footer/footer.wxml" />
+
+
+
+
+</view>

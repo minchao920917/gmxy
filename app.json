@@ -1,12 +1,30 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/entry/index",
+    "pages/footer/footer",
+    "pages/contact/contact",
+    "pages/short/index",
+    "pages/broader/index",
+    "pages/us/us",
+    "pages/technology/index",
+    "pages/newlist/newlist",
+    "pages/clinic/index",
+    "pages/calendar/index",
+    "pages/mine/index",
+    "pages/graphic/index",
+    "pages/newdetail/newdetail",
+    "pages/mycourse/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#b41927",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "#fff"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

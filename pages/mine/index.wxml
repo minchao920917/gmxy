@@ -1,0 +1,25 @@
+<!--我的index.wxml-->
+<view class="main">
+  <!-- baners -->
+  <view class="baners">
+    <image src="{{banerImg}}"></image>
+  </view>
+
+  <!-- fast-nav -->
+  <view class="fast-nav">
+
+    <block wx:for="{{fastnav}}" wx:key='fastnav'>
+      <navigator url="{{item.linkUrl}}" hover-class="className">
+        <view class="list-item">
+          <view class="left">
+            <image src="{{item.icon}}"></image>
+            <text>{{item.name}}</text>
+          </view>
+          <text> > </text>
+        </view>
+      </navigator>
+    </block>
+
+  </view>
+
+</view>

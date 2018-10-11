@@ -1,0 +1,24 @@
+<!--我的课程.wxml-->
+<view class="main">
+
+  <view class="mycours">
+    <scroll-view scroll-y >
+    
+    <!-- 没有内容的时候的提示 -->
+    <view class='tip-none' wx:if="{{havenone}}">精彩内容，即将呈现！</view>
+
+      <block wx:for="{{courseData}}" wx:key="courseData">
+       <navigator url='/pages/newdetail/newdetail?id={{item.id}}' hover-class="navigator-hover">
+        <view class="list-item">
+          <image src="{{item.cover}}"></image>
+          <view>
+            <text class='title'>{{item.title}}</text>
+            <text class='dsc'>{{item.desc}}</text>
+          </view>
+        </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+
+</view>
