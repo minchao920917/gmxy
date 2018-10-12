@@ -1,0 +1,18 @@
+<!--热门资讯 -->
+<view class="main hot">
+  <!-- 引入新闻模板 -->
+  <import src="../newlist/newlist.wxml" />
+  <view class="market-entry">
+    <scroll-view scroll-y  bindscrolltolower="lower"  scroll-with-animation ="{{true}}">
+
+      <!-- 没有内容的时候的提示 -->
+      <view class='tip-none' wx:if="{{havenone}}">精彩内容，即将呈现！</view>
+      <block wx:for='{{listdata}}' wx:key='listdata'>
+        <template is="templates" data="{{...item}}" />
+      </block>
+    </scroll-view>
+  </view>
+
+
+
+</view>

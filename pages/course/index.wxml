@@ -1,0 +1,75 @@
+<!-- 精品课程 -->
+<view class="course">
+  <!--pages/detail/detail.wxml-->
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">视频</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">研报</view>
+  </view>
+
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <swiper-item>
+      <scroll-view scroll-x="true" class="list sx-list">
+        <view class="item sx-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/learn.png"></image>
+        </view>
+        <view class="item sx-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/learn.png"></image>
+        </view>
+        <view class="item sx-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/learn.png"></image>
+        </view>
+        <view class="item sx-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/learn.png"></image>
+        </view>
+      </scroll-view>
+      <view class="ul">
+        <view class="li">
+          <view class="left">
+            <image src="../../images/yg.png"></image>
+          </view>
+          <view class="right">
+            <view class="tit">妖股是怎样炼成的</view>
+            <view class="desc poeple">主讲人：谭老师</view>
+            <view class="desc time">时间：2018-09-20</view>
+            <view class="desc course">课时：4课时</view>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <image src="../../images/yg.png"></image>
+          </view>
+          <view class="right">
+            <view class="tit">妖股是怎样炼成的</view>
+            <view class="desc poeple">主讲人：谭老师</view>
+            <view class="desc time">时间：2018-09-20</view>
+            <view class="desc course">课时：4课时</view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-x="true" class="list sd-list">
+        <view class="item sd-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/read.png"></image>
+        </view>
+        <view class="item sd-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/read.png"></image>
+        </view>
+        <view class="item sd-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/read.png"></image>
+        </view>
+        <view class="item sd-item">
+          <image class="img" src="../../images/ygone.png"></image>
+          <image class="sx" src="../../images/read.png"></image>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

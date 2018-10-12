@@ -1,0 +1,118 @@
+/* pages/course/index.wxss */
+
+.course{
+  width: 100%;
+
+  background: #fff
+}
+
+.swiper-tab{
+    width: 100%;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    align-content: space-around;
+    justify-content:center;
+    background: #fff;
+    padding: 0 0 10rpx 0;
+}
+.swiper-tab-item{
+    width: 120rpx; 
+    color: #4B4B4B;
+    letter-spacing: 1rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+}
+.active{
+    color:#D1141B;
+}
+.active:after{
+  content: "·";
+  width: 6rpx;
+  height: 6rpx;
+  position: relative;
+  font-weight: 600;
+  top: 34rpx;
+  left: -34rpx;
+  z-index: 40;
+}
+swiper{
+  text-align: center;
+  height:100vh;
+}
+
+.list{
+  padding: 35rpx 10rpx;
+  background: #EFEEF3;
+
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-around;
+}
+.item{
+  width: 265rpx;
+  height: 149rpx;
+  margin-left: 20rpx;
+  display: inline-block;
+  position: relative;
+}
+.item:last-child{
+  margin-right: 40rpx;
+}
+.item .img{
+  width: 265rpx;
+  height: 149rpx;
+}
+.item .sx{
+  width: 77rpx;
+  height: 63rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ul{
+  padding: 8rpx 0;
+  display: block;
+}
+.ul .li{
+  padding: 0 30rpx;
+  height: 160rpx;
+  margin-top: 30rpx;
+}
+.ul .li .left{
+  width: 284rpx;
+  height: 160rpx;
+  float: left;
+}
+.ul .li .left image{
+  width: 284rpx;
+  height: 160rpx;
+}
+.ul .li .right{ 
+  width: 405rpx;
+  height: 160rpx;
+  float:left;
+  text-align: left;
+}
+
+.right .tit{
+  width: 100%;
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: bold;
+  padding-left: 40rpx;
+  overflow:hidden;
+  word-break:keep-all;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  margin-bottom: 16rpx;
+}
+.right .desc{
+  font-size: 24rpx;
+  color: #474747;
+  padding-left: 40rpx;
+  line-height: 33rpx;
+}

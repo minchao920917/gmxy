@@ -23,17 +23,17 @@ Page({
     navInfo: [{
         imgUrl: '../../images/shishi.png',
         txt: '实时播报',
-        linkUrl: '/pages/entry/index'
+        linkUrl: '/pages/broadcast/index'
       },
       {
         imgUrl: '../../images/news.png',
         txt: '热门资讯',
-        linkUrl: '/pages/technology/index'
+        linkUrl: '/pages/hot/index'
       },
       {
         imgUrl: '../../images/course.png',
         txt: '精品课程',
-        linkUrl: '/pages/graphic/index'
+        linkUrl: '/pages/course/index'
       },
       {
         imgUrl: '../../images/product.png',
@@ -44,14 +44,13 @@ Page({
     video: {
       src: 'http://1254161541.vod2.myqcloud.com/284b4cc5vodtransgzp1254161541/384989e55285890782258301412/v.f30.mp4',
       img: '../../images/video-img.png',
-      btn:'../../images/play.png'
+      btn: '../../images/play.png'
 
     },
-    navFooter:[
-      {
+    navFooter: [{
         imgUrl: '../../images/index.png',
         txt: '首页',
-        active:'active',
+        active: 'active',
         linkUrl: '/pages/entry/index'
       },
       {
@@ -107,11 +106,11 @@ Page({
   PhoneCall: app.PhoneCall,
 
   //播放视频
-  PlayVoid:function(){
+  PlayVoid: function() {
 
   },
   //videoErrorCallback
-  videoErrorCallback: function (e) {
+  videoErrorCallback: function(e) {
     console.log('视频错误信息:' + e.detail.errMsg);
 
   }

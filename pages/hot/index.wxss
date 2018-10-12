@@ -1,0 +1,76 @@
+/* index.wxss */
+.hot{
+  background: #fff;
+  overflow-x: hidden
+}
+/* 新闻模板 */
+
+.market-entry scroll-view {
+  width: 100%;
+}
+
+.market-entry .enter-item {
+  border-bottom: 1px solid #ddd;
+  padding: 20rpx 30rpx;
+  line-height: 40rpx;
+}
+
+.market-entry .conten {
+  display: flex;
+  justify-content: space-between;
+}
+
+.market-entry .conten image {
+  flex-shrink: 0;
+  height: 154rpx;
+  width: 236rpx;
+  display: inline-flex;
+  border:1px solid #eee;
+}
+
+.market-entry .conten .tit {
+  text-overflow: ellipsis;
+  margin-bottom: 15rpx;
+  font-size: 30rpx;
+  color: #000000;
+  line-height: 50rpx;
+  width: 420rpx;
+  height: 100rpx;
+  font-weight: 600;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.market-entry .conten  text {
+  display: block;
+}
+
+.market-entry .conten  .infos {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #666;
+}
+
+.market-entry .timdate {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #555555;
+}
+
+.market-entry .time .sours text {
+  padding-right: 20rpx;
+}
+
+.market-entry .time .sours image {
+  width: 36rpx;
+  height: 26rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-top: -4rpx;
+}
+
