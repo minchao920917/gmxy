@@ -38,7 +38,7 @@ Page({
       {
         imgUrl: '../../images/product.png',
         txt: '产品介绍',
-        linkUrl: '/pages/broader/index'
+        linkUrl: '/pages/products/index'
       }
     ],
     video: {

@@ -56,20 +56,58 @@
         <view class="item sd-item">
           <image class="img" src="../../images/ygone.png"></image>
           <image class="sx" src="../../images/read.png"></image>
+          <view class="tit">
+            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！重要时刻，金色九月值得期待重要时刻，金色九月值得期待重要时刻，金色九月值得期待</view>
+          </view>
         </view>
         <view class="item sd-item">
           <image class="img" src="../../images/ygone.png"></image>
           <image class="sx" src="../../images/read.png"></image>
+          <view class="tit">
+            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
+          </view>
         </view>
         <view class="item sd-item">
           <image class="img" src="../../images/ygone.png"></image>
           <image class="sx" src="../../images/read.png"></image>
+          <view class="tit">
+            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
+          </view>
         </view>
         <view class="item sd-item">
           <image class="img" src="../../images/ygone.png"></image>
           <image class="sx" src="../../images/read.png"></image>
+          <view class="tit">
+            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
+          </view>
         </view>
       </scroll-view>
+      <view class="ul">
+        <view class="yb-item">
+          <view class="yb-tit">
+            【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
+          </view>
+          <view class="yb-desc">
+            早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
+          </view>
+          <view class="yb-time">
+            <text class="yb-date ">9-17  08:24  星期一</text>
+            <view class="yb-power"><view class="icon icon-lock"></view> <text>¥30解锁全文</text></view>
+          </view>
+        </view>
+        <view class="yb-item">
+          <view class="yb-tit">
+            【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
+          </view>
+          <view class="yb-desc">
+            早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
+          </view>
+          <view class="yb-time">
+            <text class="yb-date ">9-17  08:24  星期一</text>
+            <view class="yb-power"><view class="icon icon-unlock"></view> <text>已解锁</text></view>
+          </view>
+        </view>
+      </view>
     </swiper-item>
   </swiper>
 </view>

@@ -1,0 +1,166 @@
+/* pages/products/index.wxss */
+
+.teachers {
+  background: #efeef3;
+  padding: 15rpx 10rpx;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-around;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.teacher {
+  display: inline-block;
+  width: 258rpx;
+  height: 300rpx;
+  background: #fff;
+  padding: 20rpx 0;
+  margin-left: 20rpx;
+}
+
+.teacher:last-child {
+  margin-right: 30rpx;
+}
+
+.teacher .te-pic {
+  width: 180rpx;
+  height: 180rpx;
+  overflow: hidden;
+  border-radius: 90rpx;
+  margin: 0 auto;
+}
+
+.teacher .te-pic image {
+  width: 100%;
+  height: 220rpx;
+}
+
+.te-name {
+  margin-top: 25rpx;
+  font-size: 32rpx;
+  color: #535353;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.te-tit {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #d1141b;
+  letter-spacing: 0.75px;
+  text-align: center;
+}
+
+/* 产品列表 */
+
+.pros {
+}
+
+.pro-tit {
+  font-size: 32rpx;
+  color: #000;
+  letter-spacing: 1rpx;
+  padding-left: 20rpx;
+  border-left: 12rpx solid #d1141b;
+  margin: 20rpx 0;
+  font-weight: 600;
+}
+
+.pro-list {
+  padding: 10rpx 30rpx;
+}
+.pro-item{
+  margin-top:20rpx;
+  height: 158rpx;
+}
+.pro-item .left {
+  width: 250rpx;
+  height: 158rpx;
+  float: left;
+}
+
+.pro-item .left image {
+  width: 250rpx;
+  height: 158rpx;
+}
+
+.pro-item .right {
+  float: left;
+  max-width: 390rpx;
+  padding-left: 50rpx;
+  height: 158rpx;
+}
+
+.pro-item .right .pro-name {
+  font-size: 36rpx;
+  color: #000;
+  letter-spacing: 1.12px;
+  font-weight: 600;
+  line-height: 50rpx;
+}
+
+.pro-item .right .pro-desc {
+  font-size: 28rpx;
+  color: #6a6a6a;
+  letter-spacing: 0.88px;
+  margin:14rpx 0;
+
+}
+
+.pro-item .right .pro-btn {
+  background: #d1141b;
+  width: 197rpx;
+  line-height: 45rpx;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 24rpx;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* 模态框 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 700rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 10%;
+  left: 25rpx;
+  z-index: 9999;
+  background: #f9f9f9;
+  border-radius: 10rpx;
+  padding: 60rpx 30rpx;
+}
+.intro{
+
+}
+.intro .img{
+  float: left;
+}
+.intro .img image{
+  width: 188rpx;
+  height: 250rpx;
+}
+
+.intr-right{
+  float: left;
+  height: 250rpx;
+  width: 413rpx;
+  overflow: hidden;
+}

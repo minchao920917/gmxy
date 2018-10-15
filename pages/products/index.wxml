@@ -1,0 +1,114 @@
+<!--pages/products/index.wxml-->
+<view class="products">
+  <scroll-view scroll-x="true" class="teachers">
+    <view class="teacher " bindtap="showDialogBtn">
+      <view class="te-pic">
+        <image class="img" src="../../images/te.png"></image>
+      </view>
+      <view class="te-name">谢老师</view>
+      <view class="te-tit">趋势之王</view>
+    </view>
+    <view class="teacher ">
+      <view class="te-pic">
+        <image class="img" src="../../images/te.png"></image>
+      </view>
+      <view class="te-name">谢老师</view>
+      <view class="te-tit">趋势之王</view>
+    </view>
+    <view class="teacher ">
+      <view class="te-pic">
+        <image class="img" src="../../images/te.png"></image>
+      </view>
+      <view class="te-name">谢老师</view>
+      <view class="te-tit">趋势之王</view>
+    </view>
+    <view class="teacher ">
+      <view class="te-pic">
+        <image class="img" src="../../images/te.png"></image>
+      </view>
+      <view class="te-name">谢老师</view>
+      <view class="te-tit">趋势之王</view>
+    </view>
+  </scroll-view>
+
+  <view class="pros">
+    <view class="pro-tit">
+      产品目录
+    </view>
+    <view class="pro-list">
+      <view class="pro-item">
+        <view class="left">
+          <image src="../../images/pro.jpg"></image>
+        </view>
+        <view class="right">
+          <view class="pro-name">强势优选</view>
+          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
+          <view class="pro-btn">立即查看</view>
+        </view>
+      </view>
+      <view class="pro-item">
+        <view class="left">
+          <image src="../../images/pro.jpg"></image>
+        </view>
+        <view class="right">
+          <view class="pro-name">强势优选</view>
+          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
+          <view class="pro-btn">立即查看</view>
+        </view>
+      </view>
+      <view class="pro-item">
+        <view class="left">
+          <image src="../../images/pro.jpg"></image>
+        </view>
+        <view class="right">
+          <view class="pro-name">强势优选</view>
+          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
+          <view class="pro-btn">立即查看</view>
+        </view>
+      </view>
+      <view class="pro-item">
+        <view class="left">
+          <image src="../../images/pro.jpg"></image>
+        </view>
+        <view class="right">
+          <view class="pro-name">强势优选</view>
+          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
+          <view class="pro-btn">立即查看</view>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+</view>
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="intro">
+    <view class="img">
+      <image src="../../images/te.png"></image>
+    </view>
+    <view class="intr-right">
+      <view class="intr-name">
+        <text class="name">谢老师</text>
+        <text class="nick-name">趋势之王</text>
+      </view>
+      <view class="intr-exp">
+        <view class="exp">工作经验：</view>
+        <view class="exp-intro">
+          是我国证券协会第一批注册投资顾问，曾参与大型私募基金操作，具有13年的实战。
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="goods">
+    <view class="">擅长领域：</view>
+    <view class="">重视基本面研究和趋势分析，注重市场大局判断，从中寻找未来潜在热点，把握龙头个股的收益机会。 并且对风险控制有自己的完整体系，倡导乐观、进取、知性而为的股票投资观，更辅助许多客户创造了骄人的业绩，曾创下年收益超15倍的战绩。
+    </view>
+  </view>
+  <view class="goods">
+    <view class="">投资理念：</view>
+    <view class="">顺应趋势的一分坚持要比逆势而为的十分努力赢得更好的收益！</view>
+  </view>
+</view>

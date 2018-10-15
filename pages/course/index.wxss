@@ -1,34 +1,36 @@
 /* pages/course/index.wxss */
 
-.course{
+.course {
   width: 100%;
-
-  background: #fff
+  background: #fff;
 }
 
-.swiper-tab{
-    width: 100%;
-    text-align: center;
-    height: 88rpx;
-    line-height: 88rpx;
-    display: flex;
-    flex-flow: row;
-    align-content: space-around;
-    justify-content:center;
-    background: #fff;
-    padding: 0 0 10rpx 0;
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  align-content: space-around;
+  justify-content: center;
+  background: #fff;
+  padding: 0 0 10rpx 0;
 }
-.swiper-tab-item{
-    width: 120rpx; 
-    color: #4B4B4B;
-    letter-spacing: 1rpx;
-    font-size: 32rpx;
-    font-weight: 500;
+
+.swiper-tab-item {
+  width: 120rpx;
+  color: #4b4b4b;
+  letter-spacing: 1rpx;
+  font-size: 32rpx;
+  font-weight: 500;
 }
-.active{
-    color:#D1141B;
+
+.active {
+  color: #d1141b;
 }
-.active:after{
+
+.active:after {
   content: "·";
   width: 6rpx;
   height: 6rpx;
@@ -38,81 +40,177 @@
   left: -34rpx;
   z-index: 40;
 }
-swiper{
+
+swiper {
   text-align: center;
-  height:100vh;
+  height: 100vh;
 }
 
-.list{
+.list {
   padding: 35rpx 10rpx;
-  background: #EFEEF3;
-
+  background: #efeef3;
   white-space: nowrap;
   display: flex;
   justify-content: space-around;
 }
-.item{
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.item {
   width: 265rpx;
   height: 149rpx;
   margin-left: 20rpx;
   display: inline-block;
   position: relative;
 }
-.item:last-child{
+
+.item:last-child {
   margin-right: 40rpx;
 }
-.item .img{
+
+.item .img {
   width: 265rpx;
   height: 149rpx;
 }
-.item .sx{
+
+.item .sx {
   width: 77rpx;
   height: 63rpx;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 
-.ul{
+.ul {
   padding: 8rpx 0;
   display: block;
 }
-.ul .li{
+
+.ul .li {
   padding: 0 30rpx;
   height: 160rpx;
   margin-top: 30rpx;
 }
-.ul .li .left{
+
+.ul .li .left {
   width: 284rpx;
   height: 160rpx;
   float: left;
 }
-.ul .li .left image{
+
+.ul .li .left image {
   width: 284rpx;
   height: 160rpx;
 }
-.ul .li .right{ 
+
+.ul .li .right {
   width: 405rpx;
   height: 160rpx;
-  float:left;
+  float: left;
   text-align: left;
 }
 
-.right .tit{
+.right .tit {
   width: 100%;
   font-size: 32rpx;
-  color: #000000;
+  color: #000;
   font-weight: bold;
   padding-left: 40rpx;
-  overflow:hidden;
-  word-break:keep-all;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin-bottom: 16rpx;
 }
-.right .desc{
+
+.right .desc {
   font-size: 24rpx;
   color: #474747;
   padding-left: 40rpx;
   line-height: 33rpx;
 }
+
+/* 研报样式 */
+
+.sd-item .tit {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.70);
+  font-size: 24rpx;
+  padding: 30rpx 25rpx;
+  top: 0;
+  left: 0;
+}
+
+.sd-item .tit view {
+  height: 90rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #fff;
+  white-space: normal;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+/* 研报列表 */
+
+.ul .yb-item {
+  padding: 40rpx 30rpx 30rpx 30rpx;
+  border-bottom: 1px solid #efeef3;
+}
+
+.yb-item .yb-tit {
+  font-size: 32rpx;
+  color: #353535;
+  letter-spacing: 0.89rpx;
+  text-align: justify;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.yb-item .yb-desc {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #464646;
+  letter-spacing: 0.7px;
+  height: 160rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.yb-time {
+  margin-top: 15rpx;
+  width: 100%;
+  height: 40rpx;
+}
+
+.yb-time .yb-date {
+  text-align: left;
+  font-size: 22rpx;
+  color: #818181;
+  float: left;
+}
+
+.yb-time .yb-power {
+  font-size: 22rpx;
+  color: #d1141b;
+  float: right;
+}
+
+

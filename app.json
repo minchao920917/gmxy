@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/course/index",
+    "pages/products/index",
     "pages/index/index",
     "pages/entry/index",
     "pages/footer/footer",
@@ -15,9 +15,10 @@
     "pages/newdetail/newdetail",
     "pages/broadcast/index",
     "pages/hot/index",
+    "pages/course/index",
 
     "pages/mycourse/index"
-    
+
   ],
   "window": {
     "backgroundTextStyle": "light",
