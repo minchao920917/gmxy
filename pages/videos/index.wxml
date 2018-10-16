@@ -1,0 +1,18 @@
+<!--pages/videos/index.wxml-->
+<view class="sp-list" >
+    <view class="sp" wx:for="{{videoList}}" wx:key="index">
+      <view class='sp-tit'>{{item.name}}</view>
+      <video id="" class="video" src="{{item.src}}" controls binderror="videoErrorCallback">
+        <cover-view class="controls">
+          <cover-image class="img" src="{{item.img}}" />
+          <cover-view class="play" src="{{item.btn}}">
+            <cover-image src="{{item.btn}}"/>
+          </cover-view>
+        </cover-view>
+      </video>
+      <view class="sp-time">
+        <text class="time">{{item.time}}</text>
+         <text class="frequency">播放次数{{item.frequency}}次</text>
+      </view>
+    </view>
+</view>

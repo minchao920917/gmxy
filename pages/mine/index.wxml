@@ -1,25 +1,35 @@
 <!--我的index.wxml-->
 <view class="main">
-  <!-- baners -->
-  <view class="baners">
-    <image src="{{banerImg}}"></image>
+  <view class="top">
+    <image class="head" src="../../images/te.png"></image>
+    <view class="name">闵长峰</view>
   </view>
-
+  <view class="clearfix"></view>
+  <view class="bind">
+   绑定手机号，送牛股指标
+  </view>
   <!-- fast-nav -->
   <view class="fast-nav">
-
     <block wx:for="{{fastnav}}" wx:key='fastnav'>
       <navigator url="{{item.linkUrl}}" hover-class="className">
         <view class="list-item">
           <view class="left">
             <image src="{{item.icon}}"></image>
-            <text>{{item.name}}</text>
+            <text class="name">{{item.name}}</text>
+            
           </view>
-          <text> > </text>
+          <image class="left-img" src="../../images/left.png"></image>
         </view>
       </navigator>
     </block>
-
   </view>
 
+  <view class="message">
+    <view>股管家，您炒股的私人管家</view>
+    <view><text class="tel" bindtap="calling">客服电话：400-669-9618</text> <text class="tips">客服服务时间：工作日9:00-18:00</text></view>
+  </view>
+  <!-- 底部模板 -->
+  <include src="../footer/footer.wxml" />
+
 </view>
+

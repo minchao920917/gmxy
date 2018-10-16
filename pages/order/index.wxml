@@ -1,0 +1,26 @@
+<!--pages/order/index.wxml-->
+<view class="order-list">
+  <view class="order" wx:for="{{orderList}}" wx:key="index">
+    <view class="or-tit">
+      <text class="type" wx:if="{{item.type==1}}">研报</text>
+      <text class="type" wx:elif="{{item.type==2}}">课程</text>
+      <text class='time'>{{item.time}}</text>
+    </view>
+    <view class="or-cont" wx:if="{{item.type==1}}">
+      {{item.name}}
+    </view>
+    <view class="or-cont" wx:elif="{{item.type==2}}">
+      <view class="img">
+        <image src="{{item.img}}"></image>
+      </view>
+      <view class="or-name">
+        <view class="name">{{item.name}}</view>
+        <view class="course">{{item.course}}</view>
+      </view>
+    </view>
+    <view class="or-foot">
+      <text class="left">价格：<text class="or-red">￥{{item.price}}</text></text>
+      <text class="right">有效期：<text class="or-red">{{item.effective}}</text></text>
+    </view>
+  </view>
+</view><!-- order-list end-->

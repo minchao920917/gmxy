@@ -27,16 +27,16 @@
   <view class="shipin">
     <view class="title">
       <text class="sp-tit">视频学院</text>
-      <navigator class="sp-more">
+      <navigator class="sp-more" url="/pages/videos/index">
         <text>查看更多</text>
       </navigator>
     </view>
     <view class="sp">
-      <video id="" class="video" src="{{video.src}}" controls binderror="videoErrorCallback">
+      <video id="video" class="video" src="{{video.src}}" controls="false" bindplay="play" binderror="videoErrorCallback">
         <cover-view class="controls">
           <cover-image class="img" src="{{video.img}}" />
-          <cover-view class="play" src="{{video.btn}}">
-            <cover-image src="{{video.btn}}"/>
+          <cover-view class="play">
+            <cover-image id="aa" bindtap='PlayVoid' src="{{video.btn}}" />
           </cover-view>
         </cover-view>
       </video>

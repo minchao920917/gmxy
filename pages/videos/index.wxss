@@ -1,0 +1,52 @@
+/* pages/videos/index.wxss */
+
+.sp-list {
+  background: #efeef3;
+}
+
+.sp {
+  padding: 15rpx 30rpx;
+  background: #fff;
+  margin-top: 10rpx;
+}
+
+.sp .video, .sp .img {
+  width: 100%;
+  height: 345rpx;
+}
+
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 136rpx;
+  height: 136rpx;
+  display: block;
+  margin-left: -68rpx;
+  margin-top: -68rpx;
+  background: rgba(0, 0, 0, 0);
+  border: none !important;
+  border-radius: 0;
+}
+
+.play image {
+  width: 136rpx;
+  height: 136rpx;
+  border: none !important;
+}
+
+.sp-tit {
+  font-size: 28rpx;
+  color: #353535;
+  letter-spacing: 0.88px;
+  margin-bottom: 10rpx;
+}
+
+.sp-time {
+  font-size: 24rpx;
+  color: #6C6C6C;
+  letter-spacing: 0.75px;
+}
+.frequency{
+  float:right;
+}

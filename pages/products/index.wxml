@@ -95,20 +95,20 @@
         <text class="nick-name">趋势之王</text>
       </view>
       <view class="intr-exp">
-        <view class="exp">工作经验：</view>
-        <view class="exp-intro">
+        <view class="exp intr-tit">工作经验：</view>
+        <view class="exp-intro intr-des">
           是我国证券协会第一批注册投资顾问，曾参与大型私募基金操作，具有13年的实战。
         </view>
       </view>
     </view>
   </view>
   <view class="goods">
-    <view class="">擅长领域：</view>
-    <view class="">重视基本面研究和趋势分析，注重市场大局判断，从中寻找未来潜在热点，把握龙头个股的收益机会。 并且对风险控制有自己的完整体系，倡导乐观、进取、知性而为的股票投资观，更辅助许多客户创造了骄人的业绩，曾创下年收益超15倍的战绩。
+    <view class="intr-tit">擅长领域：</view>
+    <view class="intr-des">重视基本面研究和趋势分析，注重市场大局判断，从中寻找未来潜在热点，把握龙头个股的收益机会。 并且对风险控制有自己的完整体系，倡导乐观、进取、知性而为的股票投资观，更辅助许多客户创造了骄人的业绩，曾创下年收益超15倍的战绩。
     </view>
   </view>
-  <view class="goods">
-    <view class="">投资理念：</view>
-    <view class="">顺应趋势的一分坚持要比逆势而为的十分努力赢得更好的收益！</view>
+  <view class="">
+    <view class="intr-tit">投资理念：</view>
+    <view class="intr-des">顺应趋势的一分坚持要比逆势而为的十分努力赢得更好的收益！</view>
   </view>
 </view>

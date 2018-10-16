@@ -51,13 +51,13 @@ Page({
         imgUrl: '../../images/index.png',
         txt: '首页',
         active: 'active',
-        linkUrl: '/pages/entry/index'
+      linkUrl: '/pages/index/index'
       },
       {
         imgUrl: '../../images/sy_my_black.png',
         txt: '我的',
         active: '',
-        linkUrl: '/pages/technology/index'
+        linkUrl: '/pages/mine/index'
       }
     ],
     telicon: app.data.telicon
@@ -106,12 +106,17 @@ Page({
   PhoneCall: app.PhoneCall,
 
   //播放视频
-  PlayVoid: function() {
+  PlayVoid: function(e) {
+    console.log('播放视频');
+    console.log(e);
 
   },
   //videoErrorCallback
   videoErrorCallback: function(e) {
     console.log('视频错误信息:' + e.detail.errMsg);
+
+  },
+  play:function(){
 
   }
 

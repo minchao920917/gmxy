@@ -1,11 +1,13 @@
 /* contact.wxss */
-
+.main{
+  background: #fff;
+}
 .banner image {
   width: 100%;
   height: 50.6666666vw;
 }
 
-.list {
+.conlist .list {
   padding: 20rpx;
   border-bottom: 1px solid #ddd;
   display: flex;
@@ -13,7 +15,7 @@
   line-height:48rpx;
 }
 
-.list image {
+.conlist .list image {
   width: 60rpx;
   height: 60rpx;
   float: left;

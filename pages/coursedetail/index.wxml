@@ -1,0 +1,34 @@
+<!--pages/coursedetail/index.wxml-->
+<view class="video">
+  <video id="" class="video" src="{{voList[0].src}}" controls binderror="videoErrorCallback">
+    <cover-view class="controls">
+      <cover-image class="img" src="{{voList[0].img}}" />
+      <cover-view class="play">
+        <cover-image src="{{voList[0].btn}}" />
+      </cover-view>
+    </cover-view>
+  </video>
+
+  <view class="vo-tit">
+  <text class="left"></text> <text class="right">目录</text>
+
+  </view>
+  <view class="vo-list">
+    <view class="vo-item" wx:for="{{voList}}" wx:key="index">
+        <view class="vo-name">{{item.title}}</view>
+        <view class="vo-lock" wx:if="{{item.islock === true}}">
+          <view class="icon icon-lock"></view> <text>¥30解锁全文</text>
+        </view>
+        <view class="vo-lock" wx:elif="{{item.islock === false}}">
+          <view class="icon icon-unlock"></view> <text>已解锁</text>
+        </view>
+    </view>
+  </view>
+
+  <view class="vo-foot">
+    <view class="vo-total">整套兑换：¥{{total}}
+    </view>
+    <view class="vo-btn">立即兑换
+    </view>
+  </view>
+</view>

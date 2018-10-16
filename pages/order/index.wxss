@@ -1,0 +1,90 @@
+/* pages/order/index.wxss */
+
+.order-list {
+  background: #efeef3;
+  padding: 20rpx;
+}
+
+.order-list .order {
+  background: #fff;
+}
+
+.order {
+  margin-top: 10rpx;
+}
+
+.or-tit {
+  border-bottom: 1px solid #efeef3;
+  padding: 20rpx 30rpx 16rpx;
+  height: 40rpx;
+}
+
+.or-tit .type {
+  font-size: 28rpx;
+  color: #0e0e0e;
+  letter-spacing: 0;
+  float: left;
+}
+
+.or-tit .time {
+  font-size: 24rpx;
+  color: #6e6e6e;
+  letter-spacing: 0;
+  float: right;
+}
+
+.or-cont {
+  padding: 35rpx 40rpx;
+  font-size: 32rpx;
+  color: #202020;
+  letter-spacing: 0.89px;
+}
+
+.or-cont .img {
+  width: 212rpx;
+  height: 119rpx;
+  float: left;
+}
+
+.or-cont .img image {
+  width: 212rpx;
+  height: 119rpx;
+}
+
+.or-cont .or-name{
+  float: left;
+  padding-left: 25rpx;
+}
+.or-cont .or-name .name{
+  width: 380rpx;
+  height: 45rpx;
+  overflow: hidden;
+  font-size: 32rpx;
+  color: #202020;
+  letter-spacing: 0.89rpx;
+}
+.or-cont .or-name .course{
+font-size: 28rpx;
+color: #535353;
+letter-spacing: 0.78px;
+margin-top: 15rpx;
+}
+
+.or-foot {
+  clear: both;
+  padding: 10rpx 40rpx;
+  font-size: 24rpx;
+  color: #6e6e6e;
+  letter-spacing: 0;
+}
+
+.or-foot .right {
+  float: right;
+}
+
+.or-red {
+  font-size: 24rpx;
+  color: #d1141b;
+  letter-spacing: 0;
+  line-height: 33px;
+}

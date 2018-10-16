@@ -77,14 +77,14 @@
 }
 
 /* footer模块样式 end */
-
+/* 
 .tel {
   display: flex;
   justify-content: center;
   padding: 30rpx 0;
   line-height: 48rpx;
   font-size: 0.9rem;
-}
+} */
 
 .tel image {
   width: 34rpx;
