@@ -1,5 +1,6 @@
 {
   "pages": [
+        
     "pages/index/index",
     "pages/footer/footer",
     "pages/contact/contact",
@@ -10,7 +11,7 @@
     "pages/newdetail/newdetail",
     "pages/hot/index",
     "pages/broadcast/index",
-    "pages/course/index",
+"pages/course/index",
     "pages/products/index",
     "pages/videos/index",
     "pages/order/index",

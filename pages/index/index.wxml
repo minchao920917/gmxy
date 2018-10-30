@@ -2,10 +2,10 @@
 <view class="main">
   <!-- banner -->
   <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-    <block wx:for="{{movies}}" wx:key="index">
-      <navigator url="{{item.linkUrl}}" hover-class="navigator-hover">
+    <block wx:for="{{banner}}" wx:key="index">
+      <navigator url="{{item.url}}" hover-class="navigator-hover">
         <swiper-item>
-          <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+          <image src="{{getDomain}}{{item.cover}}" class="slide-image" mode="aspectFill" />
         </swiper-item>
       </navigator>
     </block>
@@ -32,11 +32,11 @@
       </navigator>
     </view>
     <view class="sp">
-      <video id="video" class="video" src="{{video.src}}" controls="false" bindplay="play" binderror="videoErrorCallback">
-        <cover-view class="controls">
-          <cover-image class="img" src="{{video.img}}" />
+      <video id="video" class="video" src="{{video.url}}" controls="false" bindtap="play"  binderror="videoErrorCallback">
+        <cover-view class="controls" hidden="{{isPaly}}">
+          <cover-image class="img" src="{{getDomain}}{{video.cover}}" />
           <cover-view class="play">
-            <cover-image id="aa" bindtap='PlayVoid' src="{{video.btn}}" />
+            <cover-image bindtap='PlayVoid' src="{{btn}}" />
           </cover-view>
         </cover-view>
       </video>

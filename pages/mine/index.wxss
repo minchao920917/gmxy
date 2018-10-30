@@ -8,12 +8,17 @@
   height: 145rpx;
 }
 
-.top image {
-  width: 145rpx;
+.top .head-wrap{
+   width: 145rpx;
   height: 145rpx;
   border-radius: 70rpx;
+  overflow: hidden;
   display: block;
   float: left;
+}
+.top .head {
+  width: 145rpx;
+  height: 145rpx;
 }
 
 .top .name {

@@ -1,12 +1,12 @@
 <!--我的index.wxml-->
 <view class="main">
   <view class="top">
-    <image class="head" src="../../images/te.png"></image>
-    <view class="name">闵长峰</view>
+     <view class="head-wrap"> <open-data class="head" type="userAvatarUrl"></open-data></view>
+    <open-data class="name" type="userNickName" lang="zh_CN"></open-data>
   </view>
   <view class="clearfix"></view>
   <view class="bind">
-   绑定手机号，送牛股指标
+   绑定手机号，送牛股指标<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button> 
   </view>
   <!-- fast-nav -->
   <view class="fast-nav">

@@ -3,14 +3,14 @@
   <view class="foot-navs">
     <block wx:for="{{navFooter}}" wx:key='nav'>
       <view class="list">
-        <navigator url="{{item.linkUrl}}" hover-class="navigator-hover">
+        <navigator url="{{item.linkUrl}}">
           <image src="{{item.imgUrl}}"></image>
           <text class="{{item.active}}">{{item.txt}}</text>
         </navigator>
       </view>
     </block>
     <view class="zg">
-      <navigator url="../clinic/index" hover-class="navigator-hover">
+      <navigator url="../clinic/index">
         <image src="../../images/zhengu.gif"></image>
       </navigator>
     </view>

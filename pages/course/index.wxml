@@ -5,109 +5,97 @@
     <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">视频</view>
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">研报</view>
   </view>
-
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
     <swiper-item>
       <scroll-view scroll-x="true" class="list sx-list">
-        <view class="item sx-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/learn.png"></image>
+        <view class="item sx-item" wx:for="{{vfreeList}}" wx:key="index">
+          <navigator url="{{item.url}}" hover-class="navigator-hover">
+            <image class="img" src="{{getDomain}}{{item.cover}}"></image>
+            <image class="sx" src="../../images/learn.png"></image>
+          </navigator>
         </view>
-        <view class="item sx-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/learn.png"></image>
-        </view>
-        <view class="item sx-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/learn.png"></image>
-        </view>
-        <view class="item sx-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/learn.png"></image>
+
+      </scroll-view>
+      <scroll-view scroll-y="true" class="ul" bindscrolltolower = "getMore">
+        <view class="li" wx:for="{{vList}}" wx:key="index">
+          <navigator url="{{item.url}}" hover-class="navigator-hover">
+            <view class="left">
+              <image src="{{getDomain}}{{item.cover}}"></image>
+            </view>
+            <view class="right">
+              <view class="tit">{{item.title}}</view>
+              <view class="desc poeple">主讲人：{{item.tname}}</view>
+              <view class="desc time">时间：{{item.time_stamp}}</view>
+              <view class="desc course">课时：{{item.period}}课时</view>
+            </view>
+          </navigator>
         </view>
       </scroll-view>
-      <view class="ul">
-        <view class="li">
-          <view class="left">
-            <image src="../../images/yg.png"></image>
-          </view>
-          <view class="right">
-            <view class="tit">妖股是怎样炼成的</view>
-            <view class="desc poeple">主讲人：谭老师</view>
-            <view class="desc time">时间：2018-09-20</view>
-            <view class="desc course">课时：4课时</view>
-          </view>
-        </view>
-        <view class="li">
-          <view class="left">
-            <image src="../../images/yg.png"></image>
-          </view>
-          <view class="right">
-            <view class="tit">妖股是怎样炼成的</view>
-            <view class="desc poeple">主讲人：谭老师</view>
-            <view class="desc time">时间：2018-09-20</view>
-            <view class="desc course">课时：4课时</view>
-          </view>
+</swiper-item>
+<swiper-item>
+  <scroll-view scroll-x="true" class="list sd-list">
+    <view class="item sd-item">
+      <image class="img" src="../../images/ygone.png"></image>
+      <image class="sx" src="../../images/read.png"></image>
+      <view class="tit">
+        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！重要时刻，金色九月值得期待重要时刻，金色九月值得期待重要时刻，金色九月值得期待</view>
+      </view>
+    </view>
+    <view class="item sd-item">
+      <image class="img" src="../../images/ygone.png"></image>
+      <image class="sx" src="../../images/read.png"></image>
+      <view class="tit">
+        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
+      </view>
+    </view>
+    <view class="item sd-item">
+      <image class="img" src="../../images/ygone.png"></image>
+      <image class="sx" src="../../images/read.png"></image>
+      <view class="tit">
+        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
+      </view>
+    </view>
+    <view class="item sd-item">
+      <image class="img" src="../../images/ygone.png"></image>
+      <image class="sx" src="../../images/read.png"></image>
+      <view class="tit">
+        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="ul">
+    <view class="yb-item">
+      <view class="yb-tit">
+        【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
+      </view>
+      <view class="yb-desc">
+        早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
+      </view>
+      <view class="yb-time">
+        <text class="yb-date ">9-17  08:24  星期一</text>
+        <view class="yb-power">
+          <view class="icon icon-lock"></view>
+          <text>¥30解锁全文</text>
         </view>
       </view>
-    </swiper-item>
-    <swiper-item>
-      <scroll-view scroll-x="true" class="list sd-list">
-        <view class="item sd-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/read.png"></image>
-          <view class="tit">
-            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！重要时刻，金色九月值得期待重要时刻，金色九月值得期待重要时刻，金色九月值得期待</view>
-          </view>
-        </view>
-        <view class="item sd-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/read.png"></image>
-          <view class="tit">
-            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
-          </view>
-        </view>
-        <view class="item sd-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/read.png"></image>
-          <view class="tit">
-            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
-          </view>
-        </view>
-        <view class="item sd-item">
-          <image class="img" src="../../images/ygone.png"></image>
-          <image class="sx" src="../../images/read.png"></image>
-          <view class="tit">
-            <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
-          </view>
-        </view>
-      </scroll-view>
-      <view class="ul">
-        <view class="yb-item">
-          <view class="yb-tit">
-            【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
-          </view>
-          <view class="yb-desc">
-            早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
-          </view>
-          <view class="yb-time">
-            <text class="yb-date ">9-17  08:24  星期一</text>
-            <view class="yb-power"><view class="icon icon-lock"></view> <text>¥30解锁全文</text></view>
-          </view>
-        </view>
-        <view class="yb-item">
-          <view class="yb-tit">
-            【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
-          </view>
-          <view class="yb-desc">
-            早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
-          </view>
-          <view class="yb-time">
-            <text class="yb-date ">9-17  08:24  星期一</text>
-            <view class="yb-power"><view class="icon icon-unlock"></view> <text>已解锁</text></view>
-          </view>
+    </view>
+    <view class="yb-item">
+      <view class="yb-tit">
+        【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
+      </view>
+      <view class="yb-desc">
+        早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
+      </view>
+      <view class="yb-time">
+        <text class="yb-date ">9-17  08:24  星期一</text>
+        <view class="yb-power">
+          <view class="icon icon-unlock"></view>
+          <text>已解锁</text>
         </view>
       </view>
-    </swiper-item>
-  </swiper>
+    </view>
+  </view>
+</swiper-item>
+</swiper>
 </view>

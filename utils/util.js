@@ -1,3 +1,5 @@
+var domain = "http://192.168.150.53:8080";
+// var domain = http://app.ngjjtg.com;
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -17,5 +19,6 @@ function formatNumber(n) {
 }
 
 module.exports = {
+  getDomain: domain,
   formatTime: formatTime
 }

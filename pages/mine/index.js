@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //用户信息
+    userInfo: { avatarUrl: "", nickName: "" },
+    //操作列表
     fastnav: [{
       icon: '../../images/order.png',
       name: '我的订单',
@@ -36,7 +39,7 @@ Page({
         imgUrl: '../../images/sy_my_black.png',
         txt: '我的',
         active: '',
-        linkUrl: '/pages/index/index'
+        linkUrl: '/pages/mine/index'
       }
     ]
   },
@@ -45,9 +48,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+   
   },
-
+  getPhoneNumber(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -58,7 +65,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+     
   },
   /*
    * 拨打电话

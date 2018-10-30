@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+var util = require('../../utils/util.js')
 var app = getApp();
 Page({
 
@@ -7,19 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movies: [{
-      linkUrl: '',
-      url: 'https://i.loli.net/2018/10/11/5bbead684f511.jpg'
-    }, {
-      linkUrl: '',
-      url: 'https://i.loli.net/2018/10/11/5bbead6862d32.png'
-    }, {
-      linkUrl: '',
-      url: 'https://i.loli.net/2018/10/11/5bbead684f511.jpg'
-    }, {
-      linkUrl: '',
-      url: 'https://i.loli.net/2018/10/11/5bbead6862d32.png'
-    }],
+    getDomain: util.getDomain,
+    banner: [],
     navInfo: [{
         imgUrl: '../../images/shishi.png',
         txt: '实时播报',
@@ -42,11 +32,8 @@ Page({
       }
     ],
     video: {
-      src: 'http://1254161541.vod2.myqcloud.com/284b4cc5vodtransgzp1254161541/384989e55285890782258301412/v.f30.mp4',
-      img: '../../images/video-img.png',
-      btn: '../../images/play.png'
-
     },
+    btn: '../../images/play.png',
     navFooter: [{
         imgUrl: '../../images/index.png',
         txt: '首页',
@@ -60,32 +47,31 @@ Page({
         linkUrl: '/pages/mine/index'
       }
     ],
-    telicon: app.data.telicon
+    telicon: app.data.telicon,
+    isPaly: false
   },
-
-  //链接跳转的第二种方法
-  // linkjump: function (event){
-  //  var urls = event.currentTarget.dataset.url;
-  //   wx.navigateTo({
-  //     url: urls
-  //     })
-  // },
 
   /**
    * 生命周期函数--监听页面加载,获取用户基本信息
    */
   onLoad: function(options) {
-    // wx.getUserInfo({
-    //   success: function (res) {
-    //     var userInfo = res.userInfo //用户基本信息
-    //     var nickName = userInfo.nickName //用户名
-    //     var avatarUrl = userInfo.avatarUrl //头像链接
-    //     var gender = userInfo.gender //性别 0：未知、1：男、2：女
-    //     var province = userInfo.province //所在省
-    //     var city = userInfo.city //所在市
-    //     var country = userInfo.country //所在国家
-    //   }
-    // })
+    var that = this;
+    wx.request({
+      url: util.getDomain+'/wxxcx/index/Index', //仅为示例，并非真实的接口地址
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        // console.log(res.data);
+        that.setData({
+          banner: res.data.data.banner,
+          video: res.data.data.vedio
+        })
+      }
+    })
   },
 
   /**
@@ -99,16 +85,27 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    this.videoContext = wx.createVideoContext('video');
+
 
   },
-
+  onHide:function(){
+    this.videoContext.pause();
+  },
   //调用服务热线
   PhoneCall: app.PhoneCall,
 
   //播放视频
   PlayVoid: function(e) {
-    console.log('播放视频');
-    console.log(e);
+    if (this.data.isPaly ){
+     
+    }else{
+      this.videoContext.play();
+      this.setData({
+        isPaly: !this.data.isPaly,
+      })
+    }
+    
 
   },
   //videoErrorCallback
@@ -117,7 +114,14 @@ Page({
 
   },
   play:function(){
-
+    if(this.data.isPaly){
+      this.videoContext.pause(); 
+    }else{
+      this.videoContext.play();
+    }
+    this.setData({
+      isPaly: !this.data.isPaly
+    })
   }
 
 })

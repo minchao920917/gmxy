@@ -3,6 +3,8 @@
 .course {
   width: 100%;
   background: #fff;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .swiper-tab {
@@ -44,6 +46,7 @@
 swiper {
   text-align: center;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .list {

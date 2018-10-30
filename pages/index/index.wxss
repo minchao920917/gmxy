@@ -31,10 +31,7 @@
   padding: 0;
 }
 
-.navigator-hover {
-  background: #fff;
-  box-shadow: 0 0 5px #666;
-}
+
 
 .navs image {
   width: 110rpx;

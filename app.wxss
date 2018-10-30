@@ -4,6 +4,8 @@
   font-size: 0.8rem;
   background: #efeef3;
   padding-bottom: 50rpx;
+  max-width: 750rpx;
+  overflow-x: hidden;
 }
 
 /* footer模块样式 */
@@ -31,7 +33,7 @@
 
 .foot-navs .list {
   flex-grow: 2;
-  /* width: 110rpx; */
+    height: 98rpx;
   background: #fff;
   box-sizing: border-box;
   text-align: center;
