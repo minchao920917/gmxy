@@ -1,17 +1,17 @@
 <!--pages/videos/index.wxml-->
 <view class="sp-list" >
     <view class="sp" wx:for="{{videoList}}" wx:key="index">
-      <view class='sp-tit'>{{item.name}}</view>
-      <video id="" class="video" src="{{item.src}}" controls binderror="videoErrorCallback">
+      <view class='sp-tit'>{{item.title}}</view>
+      <video id="" class="video" src="{{item.content}}" controls binderror="videoErrorCallback">
         <cover-view class="controls">
-          <cover-image class="img" src="{{item.img}}" />
-          <cover-view class="play" src="{{item.btn}}">
-            <cover-image src="{{item.btn}}"/>
+          <cover-image class="img" src="{{getDomain}}{{item.cover}}" />
+          <cover-view class="play">
+            <cover-image src="../../images/play.png"/>
           </cover-view>
         </cover-view>
       </video>
       <view class="sp-time">
-        <text class="time">{{item.time}}</text>
+        <text class="time">{{item.add_time}}</text>
          <text class="frequency">播放次数{{item.frequency}}次</text>
       </view>
     </view>

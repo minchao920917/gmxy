@@ -111,6 +111,9 @@
   color: #6a6a6a;
   letter-spacing: 0.88px;
   margin: 14rpx 0;
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分文字以...显示*/
 }
 
 .pro-item .right .pro-btn {

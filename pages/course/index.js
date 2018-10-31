@@ -8,11 +8,15 @@ Page({
    */
   data: {
     hiddenLoading:false,
+    loadingTip:"加载中",
+    scrollTop:0,
     getDomain: util.getDomain,
-    vpage:0,
+    vpage:1,
     rpage:1,
     vfreeList:[],
     vList:[],
+    rfreeList: [],
+    rList: [],
     currentTab: 0
   },
   //滑动切换
@@ -32,45 +36,128 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+    if (this.data.currentTab == 1){
+      this.getR(this.data.rpage)
+    }
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-   
-    this.getV();
+    this.getV(this.data.vpage);
   },
+  /*
+  * 内容移动到底部
+  */
+  tapMove: function () {
+    this.setData({
+      scrollTop: (this.data.vList.length-4)*80
+    })
+  },
+  upper:function(e){
+    // console.log("向上滑动");
+    // console.log(e.detail);
+  },
+  getScroll:function(e){
+    // console.log("向下滑动");
+    this.setData({
+      vpage: this.data.vpage + 1,
+      loadingTip:"加载中..."
+    });
+    this.getV(this.data.vpage);
 
-  getV:function(){
+  },
+  getRScroll: function (e) {
+    // console.log("向下滑动");
+    this.setData({
+      rpage: this.data.rpage + 1,
+      loadingTip:"加载中..."
+    });
+    this.getR(this.data.rpage);
 
+  },
+  getV:function(page){
     var that = this;
     that.setData({
       hiddenLoading: false
     })
-    that.data.vpage += 1;
-    console.log(that.data.vpage);
+    console.log("视频第" + page + "页");
     wx.request({
       method: 'POST',
       url: util.getDomain + '/wxxcx/index/vedioIndex',
       data: {
-        page: that.data.vpage
+        page: page
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-
-        console.log(res.data);
-        that.setData({
-          hiddenLoading: true,
-          vfreeList: res.data.data.free_list,
-          vList: that.data.vList.concat(res.data.data.list)
-        });
-
+        if (res.data.data.list.length == 0){
+          that.setData({
+            loadingTip:"已加载到底部",
+            hiddenLoading: false,
+            vpage: that.data.vpage - 1
+          });
+          setInterval(function() {
+                that.setData({
+                  hiddenLoading: true
+                });
+              }, 1000);
+        }else{
+          that.setData({
+            hiddenLoading: true,
+            vfreeList: res.data.data.free_list,
+            vList: that.data.vList.concat(res.data.data.list)
+          });
+          
+        }
+        
+        that.tapMove();
       }
     })
   },
+  getR: function (page) {
+    var that = this;
+    that.setData({
+      hiddenLoading: false
+    })
+    console.log("研报第"+page+"页");
+    wx.request({
+      method: 'POST',
+      url: util.getDomain + '/wxxcx/index/reportIndex',
+      data: {
+        page: page
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data);
+        if (res.data.data.list.length == 0) {
+          that.setData({
+            loadingTip: "已加载到底部",
+            hiddenLoading: false,
+            rpage: that.data.rpage - 1
+          });
+          setInterval(function () {
+            that.setData({
+              hiddenLoading: true
+            });
+          }, 1000);
+        } else {
+          that.setData({
+            hiddenLoading: true,
+            rfreeList: res.data.data.free_list,
+            rList: that.data.rList.concat(res.data.data.list)
+          });
 
+        }
+
+        // that.tapMove();
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -112,10 +199,7 @@ Page({
   onReachBottom: function() {
    
   },
-  getMore:function(){
-    console.log("继续加载");
-    this.getV();
-  },
+  
   /**
    * 用户点击右上角分享
    */

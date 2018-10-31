@@ -1,0 +1,87 @@
+/* pages/contactus/index.wxss */
+
+.zhengu {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.img {
+  text-align: center;
+}
+
+.img image {
+  margin: 40rpx auto 25rpx;
+  width: 460rpx;
+  height: 70rpx;
+}
+
+.tips {
+  position: relative;
+  text-align: center;
+  font-size: 28rpx;
+  color: #3d3d3d;
+  letter-spacing: 0.88rpx;
+}
+
+.tips::before {
+  position: absolute;
+  content: " ";
+  top: 20rpx;
+  left: 34%;
+  width: 34rpx;
+  height: 2rpx;
+  background: #fd5325;
+}
+
+.tips:after {
+  position: absolute;
+  content: " ";
+  top: 20rpx;
+  right: 34%;
+  width: 34rpx;
+  height: 2rpx;
+  background: #fd5325;
+}
+
+.cont {
+  margin: 20rpx auto 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #3d3d3d;
+  letter-spacing: 0.88rpx;
+}
+
+.cont .text {
+  font-size: 36rpx;
+  color: #fd5325;
+  letter-spacing: 0.88rpx;
+  line-height: 40rpx;
+}
+
+.jieshao {
+  text-align: center;
+}
+
+.jieshao image {
+  width: 470rpx;
+  height: 640rpx;
+}
+
+.guest-button {
+  width: 523rpx;
+  height: 80rpx;
+  margin: 85rpx auto 77rpx;
+  font-size: 32rpx;
+  background: #d1141b;
+  border-radius: 48rpx;
+  color: #fff;
+  padding: 22rpx 117rpx;
+  text-align: center;
+  display: block;
+}
+
+.tip{
+  font-size: 22rpx;
+color: #656061;
+text-align: center;
+}

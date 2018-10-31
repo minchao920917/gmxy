@@ -3,11 +3,11 @@
   <!-- banner -->
   <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
     <block wx:for="{{banner}}" wx:key="index">
-      <navigator url="{{item.url}}" hover-class="navigator-hover">
+      <!-- <navigator url="{{item.url}}" hover-class="navigator-hover"> -->
         <swiper-item>
           <image src="{{getDomain}}{{item.cover}}" class="slide-image" mode="aspectFill" />
         </swiper-item>
-      </navigator>
+      <!-- </navigator> -->
     </block>
   </swiper>
 

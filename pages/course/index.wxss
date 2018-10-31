@@ -45,10 +45,12 @@
 
 swiper {
   text-align: center;
-  height: 100vh;
+  height: 100%;
   overflow-y: hidden;
 }
-
+swiper-item{
+  height: 100vh !important;
+}
 .list {
   padding: 35rpx 10rpx;
   background: #efeef3;
@@ -92,6 +94,7 @@ swiper {
 .ul {
   padding: 8rpx 0;
   display: block;
+  height: 70vh;
 }
 
 .ul .li {
@@ -144,6 +147,7 @@ swiper {
   position: absolute;
   background: rgba(0, 0, 0, 0.70);
   font-size: 24rpx;
+  width:220rpx;
   padding: 30rpx 25rpx;
   top: 0;
   left: 0;
@@ -189,12 +193,13 @@ swiper {
   line-height: 40rpx;
   color: #464646;
   letter-spacing: 0.7px;
-  height: 160rpx;
+  max-height: 160rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  text-align: left;
 }
 
 .yb-time {

@@ -1,33 +1,14 @@
 <!--pages/products/index.wxml-->
 <view class="products">
   <scroll-view scroll-x="true" class="teachers">
-    <view class="teacher " bindtap="showDialogBtn">
-      <view class="te-pic">
-        <image class="img" src="../../images/te.png"></image>
+    <view class="teacher " wx:for="{{teacher_list}}" wx:key="index">
+      <view data-teacher="{{item.id}}" bindtap="showDialogBtn">
+        <view class="te-pic">
+          <image class="img" src="{{getDomain}}{{item.icon}}"></image>
+        </view>
+        <view class="te-name">{{item.name}}</view>
+        <view class="te-tit">{{item.tag}}</view>
       </view>
-      <view class="te-name">谢老师</view>
-      <view class="te-tit">趋势之王</view>
-    </view>
-    <view class="teacher ">
-      <view class="te-pic">
-        <image class="img" src="../../images/te.png"></image>
-      </view>
-      <view class="te-name">谢老师</view>
-      <view class="te-tit">趋势之王</view>
-    </view>
-    <view class="teacher ">
-      <view class="te-pic">
-        <image class="img" src="../../images/te.png"></image>
-      </view>
-      <view class="te-name">谢老师</view>
-      <view class="te-tit">趋势之王</view>
-    </view>
-    <view class="teacher ">
-      <view class="te-pic">
-        <image class="img" src="../../images/te.png"></image>
-      </view>
-      <view class="te-name">谢老师</view>
-      <view class="te-tit">趋势之王</view>
     </view>
   </scroll-view>
 
@@ -36,48 +17,16 @@
       产品目录
     </view>
     <view class="pro-list">
-      <view class="pro-item">
+      <view class="pro-item" wx:for="{{product_list}}" wx:key="index">
         <view class="left">
-          <image src="../../images/pro.jpg"></image>
+          <image src="{{getDomain}}{{item.cover_path}}"></image>
         </view>
         <view class="right">
-          <view class="pro-name">强势优选</view>
-          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
-          <view class="pro-btn">立即查看</view>
+          <view class="pro-name">{{item.title}}</view>
+          <view class="pro-desc">{{item.desc}}</view>
+           <navigator url="/pages/productdetail/index?url=https://xcx.ngjjtg.com/land/actives/broadcast/index.html" ><view class="pro-btn" >立即查看</view></navigator>
         </view>
       </view>
-      <view class="pro-item">
-        <view class="left">
-          <image src="../../images/pro.jpg"></image>
-        </view>
-        <view class="right">
-          <view class="pro-name">强势优选</view>
-          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
-          <view class="pro-btn">立即查看</view>
-        </view>
-      </view>
-      <view class="pro-item">
-        <view class="left">
-          <image src="../../images/pro.jpg"></image>
-        </view>
-        <view class="right">
-          <view class="pro-name">强势优选</view>
-          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
-          <view class="pro-btn">立即查看</view>
-        </view>
-      </view>
-      <view class="pro-item">
-        <view class="left">
-          <image src="../../images/pro.jpg"></image>
-        </view>
-        <view class="right">
-          <view class="pro-name">强势优选</view>
-          <view class="pro-desc">短线出击 优选龙头 锁定点差</view>
-          <view class="pro-btn">立即查看</view>
-        </view>
-      </view>
-
-
     </view>
   </view>
 </view>
@@ -87,28 +36,28 @@
 <view class="modal-dialog" wx:if="{{showModal}}">
   <view class="intro">
     <view class="img">
-      <image src="../../images/te.png"></image>
+      <image src="{{getDomain}}{{teacherInfo.icon}}"></image>
     </view>
     <view class="intr-right">
       <view class="intr-name">
-        <text class="name">谢老师</text>
-        <text class="nick-name">趋势之王</text>
+        <text class="name">{{teacherInfo.name}}</text>
+        <text class="nick-name">{{teacherInfo.tag}}</text>
       </view>
       <view class="intr-exp">
         <view class="exp intr-tit">工作经验：</view>
         <view class="exp-intro intr-des">
-          是我国证券协会第一批注册投资顾问，曾参与大型私募基金操作，具有13年的实战。
+         {{teacherInfo.intro}}
         </view>
       </view>
     </view>
   </view>
   <view class="goods">
     <view class="intr-tit">擅长领域：</view>
-    <view class="intr-des">重视基本面研究和趋势分析，注重市场大局判断，从中寻找未来潜在热点，把握龙头个股的收益机会。 并且对风险控制有自己的完整体系，倡导乐观、进取、知性而为的股票投资观，更辅助许多客户创造了骄人的业绩，曾创下年收益超15倍的战绩。
+    <view class="intr-des">{{teacherInfo.skill}}
     </view>
   </view>
   <view class="">
     <view class="intr-tit">投资理念：</view>
-    <view class="intr-des">顺应趋势的一分坚持要比逆势而为的十分努力赢得更好的收益！</view>
+    <view class="intr-des">{{teacherInfo.idea}}</view>
   </view>
 </view>

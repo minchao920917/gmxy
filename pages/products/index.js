@@ -1,20 +1,47 @@
 // pages/products/index.js
+//获取应用实例
+var util = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    showModal: true,
+    showModal: false,
+    getDomain: util.getDomain,
+    teacher_list:[],
+    product_list:[],
+    teacherInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList();
   },
 
+  /*
+  * 获取数据
+  */
+  getList: function(){
+    var that = this;
+    wx.request({
+      method: 'POST',
+      url: util.getDomain + '/wxxcx/index/vedioIntroduction',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        that.setData({
+          teacher_list: res.data.data.teacher_list,
+          product_list: res.data.data.product_list
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -66,7 +93,23 @@ Page({
   /**
      * 弹窗
      */
-  showDialogBtn: function () {
+  showDialogBtn: function (e) {
+    var that =this;
+    wx.request({
+      method: 'POST',
+      url: util.getDomain + '/wxxcx/index/getTeacherInfo',
+      data: {
+        tid: e.currentTarget.dataset.teacher
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        that.setData({
+          teacherInfo: res.data.data
+        })
+      }
+    })
     this.setData({
       showModal: true
     })

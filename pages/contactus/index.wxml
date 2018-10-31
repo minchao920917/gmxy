@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="zhengu">
+  <view class="img">
+    <image src="../../../images/zhengu.png"></image>
+  </view>
+  <view class="tips">温馨提示</view>
+  <view class="cont">
+  在会话中回复<text class="text">“1”</text>添加助理好友即可开通功能
+  </view>
+  <view class="jieshao">
+    <image src="../../../images/jieshao.gif"></image>
+  </view>
+
+  <view class="user motto ">
+     <contact-button class="guest-button">
+     马上开通，立即整股
+    </contact-button>
+  </view>
+  <view class="tip">
+  更多炒股服务，请到股管家APP
+  </view>
+</view>

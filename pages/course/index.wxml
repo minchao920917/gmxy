@@ -5,9 +5,11 @@
     <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">视频</view>
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">研报</view>
   </view>
-  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+  <loading hidden="{{hiddenLoading}}">{{loadingTip}}</loading>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <!-- 视频内容 -->
     <swiper-item>
+      <!-- 免费视频 横向滑动 -->
       <scroll-view scroll-x="true" class="list sx-list">
         <view class="item sx-item" wx:for="{{vfreeList}}" wx:key="index">
           <navigator url="{{item.url}}" hover-class="navigator-hover">
@@ -15,9 +17,10 @@
             <image class="sx" src="../../images/learn.png"></image>
           </navigator>
         </view>
-
       </scroll-view>
-      <scroll-view scroll-y="true" class="ul" bindscrolltolower = "getMore">
+      <!-- 免费视频 横向滑动 end -->
+      <!-- 视频课程列表 竖向滑动 -->
+      <scroll-view scroll-y="true" class="ul" scroll-top="{{scrollTop}}" bindscrolltolower="getScroll"    lower-threshold="100" bindscrolltoupper="upper" upper-threshold="200" scroll-with-animation="true">
         <view class="li" wx:for="{{vList}}" wx:key="index">
           <navigator url="{{item.url}}" hover-class="navigator-hover">
             <view class="left">
@@ -32,70 +35,45 @@
           </navigator>
         </view>
       </scroll-view>
-</swiper-item>
-<swiper-item>
-  <scroll-view scroll-x="true" class="list sd-list">
-    <view class="item sd-item">
-      <image class="img" src="../../images/ygone.png"></image>
-      <image class="sx" src="../../images/read.png"></image>
-      <view class="tit">
-        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！重要时刻，金色九月值得期待重要时刻，金色九月值得期待重要时刻，金色九月值得期待</view>
-      </view>
-    </view>
-    <view class="item sd-item">
-      <image class="img" src="../../images/ygone.png"></image>
-      <image class="sx" src="../../images/read.png"></image>
-      <view class="tit">
-        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
-      </view>
-    </view>
-    <view class="item sd-item">
-      <image class="img" src="../../images/ygone.png"></image>
-      <image class="sx" src="../../images/read.png"></image>
-      <view class="tit">
-        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
-      </view>
-    </view>
-    <view class="item sd-item">
-      <image class="img" src="../../images/ygone.png"></image>
-      <image class="sx" src="../../images/read.png"></image>
-      <view class="tit">
-        <view>【九月策略报告】多空转换重要时刻，金色九月值得期待！</view>
-      </view>
-    </view>
-  </scroll-view>
-  <view class="ul">
-    <view class="yb-item">
-      <view class="yb-tit">
-        【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
-      </view>
-      <view class="yb-desc">
-        早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
-      </view>
-      <view class="yb-time">
-        <text class="yb-date ">9-17  08:24  星期一</text>
-        <view class="yb-power">
-          <view class="icon icon-lock"></view>
-          <text>¥30解锁全文</text>
+      <!-- 视频课程列表 竖向滑动  end-->
+    </swiper-item>
+    <!-- 研报内容 -->
+    <swiper-item>
+      <!-- 免费研报 -->
+      <scroll-view scroll-x="true" class="list sd-list">
+        <view class="item sd-item" wx:for="{{rfreeList}}" wx:key="index">
+          <navigator url="{{item.url}}" hover-class="navigator-hover">
+            <image class="img" src="{{getDomain}}{{item.cover}}"></image>
+            <image class="sx" src="../../images/read.png"></image>
+            <view class="tit">
+              <view>{{item.title}}</view>
+            </view>
+          </navigator>
         </view>
-      </view>
-    </view>
-    <view class="yb-item">
-      <view class="yb-tit">
-        【九月策略报告】多空转换重要时刻，金色九月值得期待！【九月策略报告】多空转换重要时刻，金色九月值得期待！
-      </view>
-      <view class="yb-desc">
-        早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低早盘三大指数走弱，创业板创近四年的新低新低早盘三大指数走弱，创业板创近四年的新低
-      </view>
-      <view class="yb-time">
-        <text class="yb-date ">9-17  08:24  星期一</text>
-        <view class="yb-power">
-          <view class="icon icon-unlock"></view>
-          <text>已解锁</text>
+      </scroll-view>
+      <!-- 免费研报 end-->
+      <!-- 研报列表 -->
+      <scroll-view scroll-y="true" class="ul"  scroll-top="{{scrollTop}}" bindscrolltolower="getRScroll"    lower-threshold="100" bindscrolltoupper="upper" upper-threshold="200"  scroll-with-animation="true">
+        <view class="yb-item" wx:for="{{rList}}" wx:key="index">
+          <navigator url="{{item.url}}" hover-class="navigator-hover">
+            <view class="yb-tit">
+              {{item.title}}
+            </view>
+            <view class="yb-desc">
+              {{item.title}}
+            </view>
+            <view class="yb-time">
+              <text class="yb-date ">{{item.time_stamp}} {{item.weektime}}</text>
+              <view class="yb-power">
+                <view class="icon icon-lock"></view>
+                <text>¥{{item.money}} 解锁全文</text>
+              </view>
+            </view>
+          </navigator>
         </view>
-      </view>
-    </view>
-  </view>
-</swiper-item>
-</swiper>
+      </scroll-view>
+      <!-- 研报列表 end -->
+    </swiper-item>
+    <!--研报内容 end -->
+  </swiper>
 </view>

@@ -1,6 +1,6 @@
 {
   "pages": [
-        
+  "pages/contactus/index",
     "pages/index/index",
     "pages/footer/footer",
     "pages/contact/contact",
@@ -11,12 +11,15 @@
     "pages/newdetail/newdetail",
     "pages/hot/index",
     "pages/broadcast/index",
-"pages/course/index",
-    "pages/products/index",
-    "pages/videos/index",
     "pages/order/index",
     "pages/mine/index",
-    "pages/coursedetail/index"
+    "pages/course/index",
+    "pages/coursedetail/index",
+    "pages/products/index",
+    "pages/Demo/index",
+ 
+      "pages/videos/index",
+    "pages/productdetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
