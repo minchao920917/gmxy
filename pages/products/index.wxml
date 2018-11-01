@@ -19,12 +19,12 @@
     <view class="pro-list">
       <view class="pro-item" wx:for="{{product_list}}" wx:key="index">
         <view class="left">
-          <image src="{{getDomain}}{{item.cover_path}}"></image>
+          <image src="{{getDomain1}}{{item.cover_path}}"></image>
         </view>
         <view class="right">
           <view class="pro-name">{{item.title}}</view>
           <view class="pro-desc">{{item.desc}}</view>
-           <navigator url="/pages/productdetail/index?url=https://xcx.ngjjtg.com/land/actives/broadcast/index.html" ><view class="pro-btn" >立即查看</view></navigator>
+           <navigator url="/pages/productdetail/index?url={{item.url}}" ><view class="pro-btn" >立即查看</view></navigator>
         </view>
       </view>
     </view>

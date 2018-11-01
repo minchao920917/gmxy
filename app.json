@@ -1,6 +1,7 @@
 {
   "pages": [
-  "pages/contactus/index",
+
+  
     "pages/index/index",
     "pages/footer/footer",
     "pages/contact/contact",
@@ -17,8 +18,8 @@
     "pages/coursedetail/index",
     "pages/products/index",
     "pages/Demo/index",
- 
-      "pages/videos/index",
+    "pages/contactus/index",
+    "pages/videos/index",
     "pages/productdetail/index"
   ],
   "window": {

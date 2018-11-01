@@ -9,6 +9,7 @@ Page({
   data: {
     showModal: false,
     getDomain: util.getDomain,
+    getDomain1: util.getDomain1,
     teacher_list:[],
     product_list:[],
     teacherInfo:{}
@@ -19,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
     this.getList();
+    this.getproductlist();
   },
 
   /*
@@ -37,7 +39,25 @@ Page({
       success(res) {
         that.setData({
           teacher_list: res.data.data.teacher_list,
-          product_list: res.data.data.product_list
+        })
+      }
+    })
+  },
+
+  getproductlist: function () {
+    var that = this;
+    wx.request({
+      method: 'POST',
+      url: util.getDomain1 + '/wxxcx/getproductlist',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          product_list: res.data.data
         })
       }
     })

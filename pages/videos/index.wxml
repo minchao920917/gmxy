@@ -1,18 +1,20 @@
 <!--pages/videos/index.wxml-->
-<view class="sp-list" >
+
+<scroll-view scroll-y="true" class="sp-list" scroll-top="{{scrollTop}}" bindscrolltolower="getScroll"    lower-threshold="100" bindscrolltoupper="upper" bindscroll="scroll" upper-threshold="200" scroll-with-animation="true">
     <view class="sp" wx:for="{{videoList}}" wx:key="index">
       <view class='sp-tit'>{{item.title}}</view>
-      <video id="" class="video" src="{{item.content}}" controls binderror="videoErrorCallback">
-        <cover-view class="controls">
+      <video id="video-{{index}}" class="video" src="{{item.content}}" controls binderror="videoErrorCallback">
+        <cover-view wx:if='{{ index != playIndex}}'>
           <cover-image class="img" src="{{getDomain}}{{item.cover}}" />
           <cover-view class="play">
-            <cover-image src="../../images/play.png"/>
+            <cover-image data-videoid="video-{{index}}" data-vid="{{item.id}}" bindtap='PlayVoid' src="../../images/play.png"/>
           </cover-view>
         </cover-view>
       </video>
       <view class="sp-time">
-        <text class="time">{{item.add_time}}</text>
-         <text class="frequency">播放次数{{item.frequency}}次</text>
+        <text class="time">{{item.time_stamp}}</text>
+         <text class="frequency">播放次数{{item.click}}次</text>
       </view>
     </view>
-</view>
+</scroll-view>
+<loading hidden="{{hiddenLoading}}">{{loadingTip}}</loading>

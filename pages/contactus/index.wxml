@@ -12,9 +12,9 @@
   </view>
 
   <view class="user motto ">
-     <contact-button class="guest-button">
+     <button open-type="contact"class="guest-button">
      马上开通，立即整股
-    </contact-button>
+    </button>
   </view>
   <view class="tip">
   更多炒股服务，请到股管家APP

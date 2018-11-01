@@ -75,9 +75,6 @@
   background: #d1141b;
   border-radius: 48rpx;
   color: #fff;
-  padding: 22rpx 117rpx;
-  text-align: center;
-  display: block;
 }
 
 .tip{
