@@ -37,6 +37,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+       
         that.setData({
           teacher_list: res.data.data.teacher_list,
         })
@@ -55,6 +56,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        
         that.setData({
           product_list: res.data.data
         })

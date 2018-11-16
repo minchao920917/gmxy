@@ -128,10 +128,10 @@ swiper-item{
   flex-grow: 1;
   /* float: left; */
   text-align: left;
+  overflow: hidden;
 }
 
 .right .tit {
-  width: 100%;
   font-size: 32rpx;
   color: #000;
   font-weight: bold;

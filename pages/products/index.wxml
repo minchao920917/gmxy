@@ -24,7 +24,7 @@
         <view class="right">
           <view class="pro-name">{{item.title}}</view>
           <view class="pro-desc">{{item.desc}}</view>
-           <navigator url="/pages/productdetail/index?url={{item.url}}" ><view class="pro-btn" >立即查看</view></navigator>
+           <navigator url="/pages/productdetail/index?url={{getDomain1}}{{item.link}}" ><view class="pro-btn" >立即查看</view></navigator>
         </view>
       </view>
     </view>
