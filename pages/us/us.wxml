@@ -1,22 +1,4 @@
 <!--us.wxml-->
 <view class="main">
-
-   <!-- banner -->
-  <view class="banner">
-    <view class="slogin">
-   
-      <text>关于君银
-      ABOUT US </text>
-    </view>
-    <image src="{{banerImg}}"></image>
-  </view>
-
-  <!-- detail -->
-  <view class="detail">
-    <rich-text nodes="{{txt}}"></rich-text>
-  </view>
-
-  <!-- 底部模板 -->
-  <include src="../footer/footer.wxml" />
-  
+  <web-view src="http://app.ngjjtg.com/index/about/index"></web-view>
 </view>

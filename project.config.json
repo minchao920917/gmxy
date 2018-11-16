@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.0",
-	"appid": "touristappid",
-	"projectname": "%E8%82%A1%E6%B0%91%E5%AD%A6%E9%99%A2",
+	"libVersion": "2.4.0",
+	"appid": "wxa4eebda73bdb1d53",
+	"projectname": "%E8%82%A1%E7%AE%A1%E5%AE%B6",
 	"condition": {
 		"search": {
 			"current": -1,

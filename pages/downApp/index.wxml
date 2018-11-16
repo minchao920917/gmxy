@@ -1,0 +1,7 @@
+<!--pages/downApp/index.wxml-->
+<view>
+
+  <web-view src="https://android.myapp.com/myapp/detail.htm?apkName=com.jyzqsz.stock&ADTAG=mobile">
+
+  </web-view>
+</view>

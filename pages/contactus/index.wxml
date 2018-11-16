@@ -1,19 +1,22 @@
 <!--index.wxml-->
 <view class="zhengu">
   <view class="img">
-    <image src="../../../images/zhengu.png"></image>
+    <image src="../../images/zhengu.png"></image>
   </view>
   <view class="tips">温馨提示</view>
+  <button class="back" open-type="launchApp" app-parameter="wechat" binderror="launchAppError">
+    <image src="../../images/back.png"></image>
+  </button>
   <view class="cont">
   在会话中回复<text class="text">“1”</text>添加助理好友即可开通功能
   </view>
   <view class="jieshao">
-    <image src="../../../images/jieshao.gif"></image>
+    <image src="../../images/jieshao.gif"></image>
   </view>
 
   <view class="user motto ">
      <button open-type="contact"class="guest-button">
-     马上开通，立即整股
+     马上开通，立即诊股
     </button>
   </view>
   <view class="tip">

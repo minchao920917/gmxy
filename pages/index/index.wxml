@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="main">
+
   <!-- banner -->
   <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
     <block wx:for="{{banner}}" wx:key="index">
@@ -33,9 +34,9 @@
     </view>
     <view class="sp">
       <video id="video" class="video" src="{{video.url}}" controls="false" bindtap="play"  binderror="videoErrorCallback">
-        <cover-view class="controls" hidden="{{isPaly}}">
+        <cover-view  hidden="{{isPaly}}">
           <cover-image class="img" src="{{getDomain}}{{video.cover}}" />
-          <cover-view class="play">
+          <cover-view class="playing">
             <cover-image bindtap='PlayVoid' src="{{btn}}" />
           </cover-view>
         </cover-view>

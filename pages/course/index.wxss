@@ -94,19 +94,27 @@ swiper-item{
 .ul {
   padding: 8rpx 0;
   display: block;
-  height: 70vh;
-}
 
+}
+.sp{
+  height: 72vh;
+}
+.yb{
+  height: 72vh;
+}
 .ul .li {
   padding: 0 30rpx;
   height: 160rpx;
   margin-top: 30rpx;
+  
 }
-
+.ul .li navigator{
+  display: flex;
+}
 .ul .li .left {
   width: 284rpx;
   height: 160rpx;
-  float: left;
+  flex-grow: 1;
 }
 
 .ul .li .left image {
@@ -117,7 +125,8 @@ swiper-item{
 .ul .li .right {
   width: 405rpx;
   height: 160rpx;
-  float: left;
+  flex-grow: 1;
+  /* float: left; */
   text-align: left;
 }
 

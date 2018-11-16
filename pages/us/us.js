@@ -16,17 +16,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: app.data.weburl + 'api/company/info',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        that.setData({
-          txt: res.data.data.desc
-        })
-      }
-    })
+    
 
   },
 

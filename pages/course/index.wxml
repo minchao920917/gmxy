@@ -12,7 +12,7 @@
       <!-- 免费视频 横向滑动 -->
       <scroll-view scroll-x="true" class="list sx-list">
         <view class="item sx-item" wx:for="{{vfreeList}}" wx:key="index">
-          <navigator url="{{item.url}}" hover-class="navigator-hover">
+          <navigator url="/pages/coursedetail/index?pid={{item.pid}}&id={{item.id}}" hover-class="navigator-hover">
             <image class="img" src="{{getDomain}}{{item.cover}}"></image>
             <image class="sx" src="../../images/learn.png"></image>
           </navigator>
@@ -20,9 +20,9 @@
       </scroll-view>
       <!-- 免费视频 横向滑动 end -->
       <!-- 视频课程列表 竖向滑动 -->
-      <scroll-view scroll-y="true" class="ul" scroll-top="{{scrollTop}}" bindscrolltolower="getScroll"    lower-threshold="100" bindscrolltoupper="upper" upper-threshold="200" scroll-with-animation="true">
+      <scroll-view scroll-y="true" class="ul sp" scroll-top="{{scrollTop}}" bindscrolltolower="getScroll" bindscrolltoupper="upper" upper-threshold="100" scroll-with-animation="true">
         <view class="li" wx:for="{{vList}}" wx:key="index">
-          <navigator url="{{item.url}}" hover-class="navigator-hover">
+          <navigator url="/pages/coursedetail/index?pid={{item.id}}" hover-class="navigator-hover">
             <view class="left">
               <image src="{{getDomain}}{{item.cover}}"></image>
             </view>
@@ -42,7 +42,7 @@
       <!-- 免费研报 -->
       <scroll-view scroll-x="true" class="list sd-list">
         <view class="item sd-item" wx:for="{{rfreeList}}" wx:key="index">
-          <navigator url="{{item.url}}" hover-class="navigator-hover">
+          <navigator url="/pages/reportDetail/index?id={{item.id}}" hover-class="navigator-hover">
             <image class="img" src="{{getDomain}}{{item.cover}}"></image>
             <image class="sx" src="../../images/read.png"></image>
             <view class="tit">
@@ -53,10 +53,10 @@
       </scroll-view>
       <!-- 免费研报 end-->
       <!-- 研报列表 -->
-      <scroll-view scroll-y="true" class="ul"  scroll-top="{{scrollTop}}" bindscrolltolower="getRScroll"    lower-threshold="100" bindscrolltoupper="upper" upper-threshold="200"  scroll-with-animation="true">
+      <scroll-view scroll-y="true" class="ul yb" scroll-top="{{scrollTop}}" bindscrolltolower="getRScroll" bindscrolltoupper="upper" upper-threshold="200" scroll-with-animation="true">
         <view class="yb-item" wx:for="{{rList}}" wx:key="index">
-          <navigator url="{{item.url}}" hover-class="navigator-hover">
-            <view class="yb-tit">
+          <view  >
+            <view hover-class="navigator-hover" class="yb-tit" bindtap='jump2report' data-id="{{item.id}}" data-is_payed="{{item.is_payed}}" >
               {{item.title}}
             </view>
             <view class="yb-desc">
@@ -64,12 +64,16 @@
             </view>
             <view class="yb-time">
               <text class="yb-date ">{{item.time_stamp}} {{item.weektime}}</text>
-              <view class="yb-power">
+              <view class="yb-power" wx:if="{{item.is_payed === 2}}">
                 <view class="icon icon-lock"></view>
-                <text>¥{{item.money}} 解锁全文</text>
+                <text bindtap='pay2money'>¥{{item.money}} 解锁全文</text>
+              </view>
+              <view class="yb-power" wx:elif="{{item.is_payed === 1}}">
+                <view class="icon icon-unlock"></view>
+                <text>已解锁</text>
               </view>
             </view>
-          </navigator>
+          </view>
         </view>
       </scroll-view>
       <!-- 研报列表 end -->

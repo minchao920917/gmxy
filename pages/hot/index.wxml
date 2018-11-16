@@ -1,14 +1,22 @@
 <!--热门资讯 -->
 <view class="main hot">
-  <!-- 引入新闻模板 -->
-  <import src="../newlist/newlist.wxml" />
+  <loading hidden="{{hiddenLoading}}">{{loadingTip}}</loading>
   <view class="market-entry">
-    <scroll-view scroll-y  bindscrolltolower="lower"  scroll-with-animation ="{{true}}">
-
+    <scroll-view class="items" scroll-y="true" bindscrolltolower="lower"  scroll-with-animation ="{{true}}">
       <!-- 没有内容的时候的提示 -->
       <view class='tip-none' wx:if="{{havenone}}">精彩内容，即将呈现！</view>
-      <block wx:for='{{listdata}}' wx:key='listdata'>
-        <template is="templates" data="{{...item}}" />
+      <block wx:for='{{listdata}}' wx:key='index'>
+       <navigator url='/pages/newdetail/newdetail?id={{item.id}}' hover-class="navigator-hover">
+        <view class="enter-item" data-id="{{item.id}}">
+          <view class="conten">
+            <view class="left">
+              <text class="tit">{{item.title}}</text>
+              <view class="timdate">{{item.time_stamp}}</view>
+            </view>
+            <image src="{{getDomain}}{{item.cover}}"></image>
+          </view>
+        </view>
+      </navigator>
       </block>
     </scroll-view>
   </view>

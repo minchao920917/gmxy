@@ -1,4 +1,4 @@
-/* index.wxss */
+/* pages/reportDetail/index.wxss */
 .main{
   background: #fff;
 }

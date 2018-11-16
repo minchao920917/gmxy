@@ -1,4 +1,5 @@
 // index.js
+var app =getApp();
 Page({
 
   /**
@@ -7,23 +8,26 @@ Page({
   data: {
     //用户信息
     userInfo: { avatarUrl: "", nickName: "" },
+    phone:'',
     //操作列表
     fastnav: [{
       icon: '../../images/order.png',
       name: '我的订单',
       linkUrl: '/pages/order/index'
-    }, {
-      icon: '../../images/opinion.png',
-      name: '意见反馈',
-      linkUrl: '/pages/mycourse/index'
-    }, {
+    },
+    //  {
+    //   icon: '../../images/opinion.png',
+    //   name: '意见反馈',
+    //   linkUrl: '/pages/mycourse/index'
+    // }, 
+    {
       icon: '../../images/about.png',
       name: '关于我们',
       linkUrl: '/pages/us/us'
     }, {
       icon: '../../images/down.png',
       name: '下载APP',
-      linkUrl: '/pages/us/us'
+      linkUrl: '/pages/downApp/index'
     }, {
       icon: '../../images/phone.png',
       name: '联系我们',
@@ -48,7 +52,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-   
+    this.setData({
+      phone:app.data.phone
+    })
   },
   getPhoneNumber(e) {
     console.log(e.detail.errMsg)

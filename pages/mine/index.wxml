@@ -5,9 +5,11 @@
     <open-data class="name" type="userNickName" lang="zh_CN"></open-data>
   </view>
   <view class="clearfix"></view>
-  <view class="bind">
-   绑定手机号，送牛股指标<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button> 
-  </view>
+  <view >
+
+   <view wx:if="{{phone}}" class="bind">绑定手机号：{{phone}}</view>
+  <navigator wx:else url="/pages/bindPhone/index" class="bind">绑定手机号，送牛股指标</navigator>
+   </view>
   <!-- fast-nav -->
   <view class="fast-nav">
     <block wx:for="{{fastnav}}" wx:key='fastnav'>

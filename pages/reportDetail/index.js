@@ -1,3 +1,4 @@
+// pages/reportDetail/index.js
 // newdetail.js
 var util = require('../../utils/util.js');
 var app = getApp();
@@ -19,14 +20,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
     //请求页面详细数据
     var that = this;
     wx.request({
       method: 'POST',
-      url: util.getDomain + '/wxxcx/index/getHotArticleDetail',
+      url: util.getDomain + '/wxxcx/index/reportIndexDetail',
       data: {
-        a_id: options.id,
+        r_id: options.id,
+        uid:app.data.uid,
         domain: util.getDomain
       },
       header: {
@@ -35,17 +37,16 @@ Page({
       success: function (res) {
         var str = res.data.data.content;
         var imgStr = "<img width='100%' height = 'auto'";
-        var urlStr = util.getDomain + "/uploads";
+        var urlStr = util.getDomain+"/uploads";
         str = str.replace(/\/uploads/g, urlStr);
-          that.setData({
-            title: res.data.data.title,
-            desc: res.data.data.desc,
-            content: str.replace(/<img/g, imgStr),
-            create_time: res.data.data.create_time,
-            author: res.data.data.author,
-            view: res.data.data.click
-          });
-          
+        that.setData({
+          title: res.data.data.title,
+          desc: res.data.data.desc,
+          content: str.replace(/<img/g, imgStr),
+          create_time: res.data.data.create_time,
+          author: res.data.data.author,
+          view: res.data.data.click
+        });
         //获取页面来源的ID
         var pageid = res.data.data.id;
 
@@ -53,27 +54,16 @@ Page({
         wx.getStorage({
           key: 'newid',
           success: function (res) {
-            pageid += ','+ res.data;
+            pageid += ',' + res.data;
           }
         });
 
-        setTimeout(function(){
+        setTimeout(function () {
           wx.setStorage({
             key: "newid",
             data: pageid
           })
-        },100)
-
-
-
-        
-
-
-        
-
-       
-
-
+        }, 100)
 
       }
     })

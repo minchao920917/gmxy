@@ -48,6 +48,7 @@
   margin-left: -355rpx;
   top: -30rpx;
   font-weight: 600;
+  text-align:left;
 }
 
 .fast-nav {

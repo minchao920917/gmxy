@@ -77,8 +77,32 @@
   color: #fff;
 }
 
-.tip{
+.tip {
   font-size: 22rpx;
-color: #656061;
-text-align: center;
+  color: #656061;
+  text-align: center;
+}
+
+.back {
+  position: absolute;
+  display: inline-block;
+  border-radius: 0;
+  padding: 0;
+  width: 165rpx;
+  height: 50rpx;
+  background: rgba(0, 0, 0, 0);
+  overflow: auto;
+  font-size: 0rpx;
+  box-sizing: none;
+  top: 130rpx;
+}
+
+.back::after {
+  border: none;
+  border-color: transparent;
+}
+
+.back image {
+  width: 165rpx;
+  height: 50rpx;
 }

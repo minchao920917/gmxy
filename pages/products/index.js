@@ -48,14 +48,13 @@ Page({
     var that = this;
     wx.request({
       method: 'POST',
-      url: util.getDomain1 + '/wxxcx/getproductlist',
+      url: util.getDomain1 + '/wxxcx/xcxapi/getproductlist',
       data: {
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data);
         that.setData({
           product_list: res.data.data
         })

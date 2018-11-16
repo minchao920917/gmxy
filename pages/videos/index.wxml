@@ -6,7 +6,7 @@
       <video id="video-{{index}}" class="video" src="{{item.content}}" controls binderror="videoErrorCallback">
         <cover-view wx:if='{{ index != playIndex}}'>
           <cover-image class="img" src="{{getDomain}}{{item.cover}}" />
-          <cover-view class="play">
+          <cover-view class="playing">
             <cover-image data-videoid="video-{{index}}" data-vid="{{item.id}}" bindtap='PlayVoid' src="../../images/play.png"/>
           </cover-view>
         </cover-view>

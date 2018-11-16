@@ -1,4 +1,4 @@
-// pages/contactus/index.js
+// pages/downApp/index.js
 Page({
 
   /**
@@ -21,10 +21,7 @@ Page({
   onReady: function () {
 
   },
-  launchAppError: function (e) {
-    console.log(22222);
-    console.log(e.detail)
-  },
+
   /**
    * 生命周期函数--监听页面显示
    */

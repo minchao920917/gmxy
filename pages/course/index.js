@@ -1,6 +1,8 @@
 // pages/course/index.js
 //获取应用实例
-var util = require('../../utils/util.js')
+var util = require('../../utils/util.js');
+var MD5Util = require('../../utils/md5.js'); 
+var app = getApp();
 Page({
 
   /**
@@ -37,7 +39,7 @@ Page({
       })
     }
     if (this.data.currentTab == 1){
-      this.getR(this.data.rpage)
+      this.getR(this.data.rpage,app.data.uid)
     }
   },
 
@@ -46,6 +48,48 @@ Page({
    */
   onLoad: function(options) {
     this.getV(this.data.vpage);
+
+    this.getR(this.data.rpage,app.data.uid);
+    
+   
+  },
+  checkPhone: function (openId) {
+    console.log(openId);
+    wx.request({
+      method: 'POST',
+      url: util.getDomain1 + '/wxxcx/xcxapi/isappcustomer',
+      data: {
+        wechat: openId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if (res.data.code === 0) {
+          wx.showModal({
+            title: '提示',
+            content: '绑定手机号获取更多精彩内容',
+            cancelText: "先逛逛",
+            cancelColor: 'skyblue',
+            confirmText: "去绑定",
+            confirmColor: '#D1141B ',
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/bindPhone/index'
+                })
+              } else if (res.cancel) {
+                //console.log('点击取消')
+              }
+            }
+          })
+        } else if (res.data.code === 1) {
+          app.data.phone = res.data.data.cellphone;
+          app.data.uid = res.data.data.uid;
+        }
+
+      }
+    })
   },
   /*
   * 内容移动到底部
@@ -74,7 +118,7 @@ Page({
       rpage: this.data.rpage + 1,
       loadingTip:"加载中..."
     });
-    this.getR(this.data.rpage);
+    this.getR(this.data.rpage,app.data.uid);
 
   },
   getV:function(page){
@@ -93,6 +137,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        console.log(res.data.data.free_list);
         if (res.data.data.list.length == 0){
           that.setData({
             loadingTip:"已加载到底部",
@@ -113,11 +158,17 @@ Page({
           
         }
         
-        that.tapMove();
+        // that.tapMove();
       }
     })
   },
-  getR: function (page) {
+  getR: function (page,uid) {
+    if (!uid) {//存在openId
+      if (app.data.phone == "") {//没获取到手机号和uid
+        this.checkPhone(app.data.oppenId);
+      }
+
+    }
     var that = this;
     that.setData({
       hiddenLoading: false
@@ -127,7 +178,8 @@ Page({
       method: 'POST',
       url: util.getDomain + '/wxxcx/index/reportIndex',
       data: {
-        page: page
+        page: page,
+        uid:uid
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -205,5 +257,44 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  jump2report:function(e){
+    console.log(e);
+    if (e.currentTarget.dataset.is_payed === 1){//已经解锁直接跳转新闻
+      wx.navigateTo({
+        url: '/pages/reportDetail/index?id=' + e.currentTarget.dataset.id
+      })
+    } else if (e.currentTarget.dataset.is_payed === 2){//未解锁，弹出提示
+          wx.showToast({
+            title: "该研报您还未解锁，不能访问",
+            icon: 'loading',
+            duration: 1500
+          })
+    }
+  },
+  pay2money: function (e) {
+    console.log(e);
+    var timeStamp = String(Date.parse(new Date())/1000);
+    console.log(timeStamp);
+    var payDataA = "appId=" + app.data.appId + "&nonceStr=" + 'sss' + "&package=prepay_id=" + 'preid' + "&signType=MD5&timeStamp=" + timeStamp;
+    var payDataB = payDataA + "&key=" + app.data.secret; 
+    wx.requestPayment(
+      {
+        'timeStamp': timeStamp,
+        'nonceStr': 'sss',
+        'package': 'preid',
+        'signType': 'MD5',
+        'paySign': MD5Util.MD5(payDataB).toUpperCase(),
+        'success': function (res) { 
+          console.log("成功!");
+        },
+        'fail': function (res) {
+          console.log("失败");
+          console.log(res);
+         },
+        'complete': function (res) {
+          console.log("完成");
+         }
+      })
   }
 })

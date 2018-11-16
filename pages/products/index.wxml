@@ -19,7 +19,7 @@
     <view class="pro-list">
       <view class="pro-item" wx:for="{{product_list}}" wx:key="index">
         <view class="left">
-          <image src="{{getDomain1}}{{item.cover_path}}"></image>
+          <image src="{{getDomain1}}{{item.banner_url}}"></image>
         </view>
         <view class="right">
           <view class="pro-name">{{item.title}}</view>

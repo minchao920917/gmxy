@@ -1,0 +1,60 @@
+/* pages/bindPhone/index.wxss */
+
+.form {
+  width: 600rpx;
+  margin: 200rpx auto;
+}
+
+.form-group {
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 5rpx 0;
+  line-height: 50rpx;
+}
+
+.icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.send {
+  width: 130rpx;
+  height: 40rpx;
+  line-height: 43rpx;
+  padding: 6rpx 23rpx;
+  background: #d1141b;
+  border-radius: 21rpx;
+  font-size: 22rpx;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+input {
+  padding-left: 10rpx;
+  font-size: 28rpx;
+  color: #a2a2a2;
+  letter-spacing: 0;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.sure {
+  width: 550rpx;
+  margin: 0 auto;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 4px;
+  background: #d1141b;
+  box-shadow: 0 0 8rpx 0 rgba(209, 20, 27, 0.50);
+  border-radius: 10rpx;
+}
+  .time{
+    width: 174rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #D1141B;
+    letter-spacing: 0;
+  }

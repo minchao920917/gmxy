@@ -1,26 +1,28 @@
 {
   "pages": [
 
-  
     "pages/index/index",
+    "pages/broadcast/index",
+    "pages/mine/index",
+      "pages/course/index",
+    "pages/contactus/index",
     "pages/footer/footer",
     "pages/contact/contact",
     "pages/short/index",
     "pages/us/us",
-    "pages/newlist/newlist",
     "pages/clinic/index",
     "pages/newdetail/newdetail",
-    "pages/hot/index",
-    "pages/broadcast/index",
     "pages/order/index",
-    "pages/mine/index",
-    "pages/course/index",
     "pages/coursedetail/index",
     "pages/products/index",
     "pages/Demo/index",
-    "pages/contactus/index",
+ 
+    "pages/hot/index",
     "pages/videos/index",
-    "pages/productdetail/index"
+    "pages/bindPhone/index",
+    "pages/productdetail/index",
+    "pages/downApp/index",
+    "pages/reportDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -76,7 +76,7 @@
   width: 100%;
   height: 345rpx;
 }
-.play{
+.playing{
   position: absolute;
   left: 50%;
   top: 50%;
@@ -89,7 +89,7 @@
   border: none !important;
   border-radius: 0;
 }
-.play image{
+.playing image{
   width: 136rpx;
   height: 136rpx;
   border: none !important;

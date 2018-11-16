@@ -9,6 +9,7 @@ Page({
    */
   data: {
     getDomain: util.getDomain,
+    personInfo:{},
     banner: [],
     navInfo: [{
         imgUrl: '../../images/shishi.png',
@@ -31,14 +32,13 @@ Page({
         linkUrl: '/pages/products/index'
       }
     ],
-    video: {
-    },
+    video: {},
     btn: '../../images/play.png',
     navFooter: [{
         imgUrl: '../../images/index.png',
         txt: '首页',
         active: 'active',
-      linkUrl: '/pages/index/index'
+        linkUrl: '/pages/index/index'
       },
       {
         imgUrl: '../../images/sy_my_black.png',
@@ -56,8 +56,30 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    // 查看是否授权
+    wx.login({
+      //获取code
+      success: function (res) {
+        var code = res.code; //返回code
+        var appId = app.data.appId;
+        var secret = app.data.secret;
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' +
+            appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+          data: {},
+          header: {
+            'content-type': 'json'
+          },
+          success: function (res) {
+            app.data.oppenId = res.data.openid //返回openid
+            that.checkPhone(app.data.oppenId);
+          }
+        })
+      }
+    }) 
+
     wx.request({
-      url: util.getDomain+'/wxxcx/index/Index', //仅为示例，并非真实的接口地址
+      url: util.getDomain + '/wxxcx/index/Index', //仅为示例，并非真实的接口地址
       data: {
 
       },
@@ -65,13 +87,13 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        // console.log(res.data);
         that.setData({
           banner: res.data.data.banner,
           video: res.data.data.vedio
         })
       }
     })
+
   },
 
   /**
@@ -81,15 +103,52 @@ Page({
 
   },
 
+  checkPhone:function(openId){
+    wx.request({
+      method: 'POST',
+      url: util.getDomain1 + '/wxxcx/xcxapi/isappcustomer', 
+      data: {
+        wechat:openId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if (res.data.code === 0){
+          wx.showModal({
+            title: '提示',
+            content: '绑定手机号获取更多精彩内容',
+            cancelText: "先逛逛",
+            cancelColor: 'skyblue',
+            confirmText: "去绑定",
+            confirmColor: '#D1141B ',
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/bindPhone/index'
+                })
+              } else if (res.cancel) {
+              }
+            }
+          })
+        } else if (res.data.code === 1){
+          app.data.phone = res.data.data.cellphone;
+          app.data.uid = res.data.data.uid;
+        }
+        
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
     this.videoContext = wx.createVideoContext('video');
+   
 
 
   },
-  onHide:function(){
+  onHide: function() {
     this.videoContext.pause();
   },
   //调用服务热线
@@ -97,26 +156,25 @@ Page({
 
   //播放视频
   PlayVoid: function(e) {
-    if (this.data.isPaly ){
-     
-    }else{
+    if (this.data.isPaly) {
+
+    } else {
       this.videoContext.play();
       this.setData({
         isPaly: !this.data.isPaly,
       })
     }
-    
+
 
   },
   //videoErrorCallback
   videoErrorCallback: function(e) {
-    console.log('视频错误信息:' + e.detail.errMsg);
 
   },
-  play:function(){
-    if(this.data.isPaly){
-      this.videoContext.pause(); 
-    }else{
+  play: function() {
+    if (this.data.isPaly) {
+      this.videoContext.pause();
+    } else {
       this.videoContext.play();
     }
     this.setData({

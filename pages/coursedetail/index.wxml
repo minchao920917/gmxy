@@ -1,10 +1,11 @@
 <!--pages/coursedetail/index.wxml-->
 <view class="video">
-  <video id="" class="video" src="{{voList[0].src}}" controls binderror="videoErrorCallback">
-    <cover-view class="controls">
-      <cover-image class="img" src="{{voList[0].img}}" />
+
+  <video id="myVideo" class="video" src="{{vo.url}}" controls bindtap='playVideo' binderror="videoErrorCallback" data-is_payed="{{vo.is_payed}}">
+    <cover-view class="controls" hidden="{{isPaly}}">
+      <cover-image class="img" src="{{getDomain}}{{vo.cover}}" />
       <cover-view class="play">
-        <cover-image src="{{voList[0].btn}}" />
+        <cover-image bindtap='play' bindtap='playVideo' binderror="videoErrorCallback" data-is_payed="{{vo.is_payed}}" src="../../images/play.png" />
       </cover-view>
     </cover-view>
   </video>
@@ -15,17 +16,18 @@
   </view>
   <view class="vo-list">
     <view class="vo-item" wx:for="{{voList}}" wx:key="index">
-        <view class="vo-name">{{item.title}}</view>
-        <view class="vo-lock" wx:if="{{item.islock === true}}">
-          <view class="icon icon-lock"></view> <text>¥30解锁全文</text>
+        <view  bindtap='bf2video' data-index="{{index}}"  data-is_payed="{{item.is_payed}}"
+        class="{{index == voindex ? 'active vo-name':'vo-name'}}" >{{item.title}}</view>
+        <view class="vo-lock" wx:if="{{item.is_payed === 2}}">
+          <view class="icon icon-lock"></view><text bindtap='pay2money'>¥{{item.money}}解锁全文</text>
         </view>
-        <view class="vo-lock" wx:elif="{{item.islock === false}}">
+        <view class="vo-lock" wx:elif="{{item.is_payed === 1}}">
           <view class="icon icon-unlock"></view> <text>已解锁</text>
         </view>
     </view>
   </view>
 
-  <view class="vo-foot">
+  <view class="vo-foot" wx-if="{{totalShow==1}}">
     <view class="vo-total">整套兑换：¥{{total}}
     </view>
     <view class="vo-btn">立即兑换
