@@ -66,7 +66,7 @@
               <text class="yb-date ">{{item.time_stamp}} {{item.weektime}}</text>
               <view class="yb-power" wx:if="{{item.is_payed === 2}}">
                 <view class="icon icon-lock"></view>
-                <text bindtap='pay2money'>¥{{item.money}} 解锁全文</text>
+                <text bindtap='pay2money' data-id="{{item.id}}" data-index="{{index}}">¥{{item.money}} 解锁全文</text>
               </view>
               <view class="yb-power" wx:elif="{{item.is_payed === 1}}">
                 <view class="icon icon-unlock"></view>

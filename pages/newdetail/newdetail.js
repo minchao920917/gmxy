@@ -8,7 +8,6 @@ Page({
   data: {
     title: '',
     author: '',
-    desc: '',
     content: '',
     create_time: '',
     view: '',
@@ -32,16 +31,15 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function (res) {
+      success: function (res) { 
         var str = res.data.data.content;
         var imgStr = "<img width='100%' height = 'auto'";
         var urlStr = util.getDomain + "/uploads";
         str = str.replace(/\/uploads/g, urlStr);
           that.setData({
             title: res.data.data.title,
-            desc: res.data.data.desc,
             content: str.replace(/<img/g, imgStr),
-            create_time: res.data.data.create_time,
+            create_time: res.data.data.time_stamp,
             author: res.data.data.author,
             view: res.data.data.click
           });

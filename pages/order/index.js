@@ -1,50 +1,107 @@
 // pages/order/index.js
+var util = require('../../utils/util.js');
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderList: [{
-        type: 1,
-        time: "2018-09-20",
-        name: "【九月策略报告】多空转换重要时刻，金色九月值得期待！",
-        price: "20",
-        effective: "永久有效",
-      },
-      {
-        type: 2,
-        time: "2018-09-20",
-        name: "【九月策略报告】多空转换重要时刻，金色九月值得期待！",
-        price: "20",
-        img: "../../images/ygone.png",
-        course: "1课时",
-        effective: "永久有效",
-      },
-      {
-        type: 1,
-        time: "2018-09-20",
-        name: "【九月策略报告】多空转换重要时刻，金色九月值得期待！",
-        price: "20",
-        effective: "永久有效",
-      },
-      {
-        type: 2,
-        time: "2018-09-20",
-        name: "【九月策略报告】多空转换重要时刻，金色九月值得期待！",
-        price: "20",
-        course: "1课时",
-        img: "../../images/ygone.png",
-        effective: "永久有效",
-      },
-    ]
+    orderList: [],
+    loadingTip: "加载中...",
+    page: 0,
+    getDomain: util.getDomain
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this;
+    if (app.data.uid== ''){
+      wx.showModal({
+        title: '提示',
+        content: '绑定手机号获取更多精彩内容',
+  
+        confirmColor: '#D1141B ',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/bindPhone/index'
+            })
+          } else if (res.cancel) {
+            wx.navigateTo({
+              url: '/pages/mine/index'
+            })
+          }
+        }
+      })
+    }else{
+      that.setData({
+        page: that.data.page + 1
+      })
+      that.getList(that.data.page);
+    }
+   
 
+  },
+
+  /*
+ * 获取视频列表
+ */
+  getList: function (page) {
+
+    var that = this;
+    that.setData({
+      loadingTip: "加载中",
+      hiddenLoading: false
+    });
+    wx.request({
+      method: 'POST',
+      url: util.getDomain + '/wxxcx/index/getOrderList',
+      data: {
+        page: page,
+        uid:app.data.uid
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if (res.data.data.length == 0) {
+          that.setData({
+            loadingTip: "已加载到底部",
+            hiddenLoading: false,
+            page: that.data.page - 1
+          });
+          setInterval(function () {
+            that.setData({
+              hiddenLoading: true
+            });
+          }, 1000);
+        } else {
+          that.setData({
+            hiddenLoading: true,
+            orderList: that.data.orderList.concat(res.data.data)
+          })
+        }
+
+      }
+    })
+  },
+  /*
+  * 获取更多
+  */
+  getScroll: function (e) {
+    this.setData({
+      page: this.data.page + 1,
+      loadingTip: "加载中..."
+    });
+    this.getList(this.data.page);
+  },
+
+  scroll: function (e) {
+    
   },
 
   /**

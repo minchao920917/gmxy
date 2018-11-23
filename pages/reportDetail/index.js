@@ -41,9 +41,7 @@ Page({
         str = str.replace(/\/uploads/g, urlStr);
         that.setData({
           title: res.data.data.title,
-          desc: res.data.data.desc,
           content: str.replace(/<img/g, imgStr),
-          create_time: res.data.data.create_time,
           author: res.data.data.author,
           view: res.data.data.click
         });

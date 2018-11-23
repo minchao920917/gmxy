@@ -2,8 +2,12 @@
 
 .order-list {
   background: #efeef3;
-  padding: 20rpx;
+  padding: 20rpx ;
+  height: 100vh;
+  overflow-x: hidden;
 }
+
+
 
 .order-list .order {
   background: #fff;

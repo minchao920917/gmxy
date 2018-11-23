@@ -59,7 +59,7 @@ Page({
             duration: 1500
           })
           
-            var TIME_COUNT = 10;
+            var TIME_COUNT = 60;
             that.data.count = TIME_COUNT;
             that.data.timer = setInterval(() => {
               if (that.data.count > 0 && that.data.count <= TIME_COUNT) {

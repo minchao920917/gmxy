@@ -16,10 +16,10 @@
   </view>
   <view class="vo-list">
     <view class="vo-item" wx:for="{{voList}}" wx:key="index">
-        <view  bindtap='bf2video' data-index="{{index}}"  data-is_payed="{{item.is_payed}}"
+        <view  bindtap='bf2video' data-index="{{index}}"  data-is_payed="{{item.is_payed}}" 
         class="{{index == voindex ? 'active vo-name':'vo-name'}}" >{{item.title}}</view>
         <view class="vo-lock" wx:if="{{item.is_payed === 2}}">
-          <view class="icon icon-lock"></view><text bindtap='pay2money'>¥{{item.money}}解锁全文</text>
+          <view class="icon icon-lock"></view><text bindtap='pay2money' data-pid="{{item.id}}">¥{{item.money}}解锁全文</text>
         </view>
         <view class="vo-lock" wx:elif="{{item.is_payed === 1}}">
           <view class="icon icon-unlock"></view> <text>已解锁</text>
@@ -30,7 +30,7 @@
   <view class="vo-foot" wx-if="{{totalShow==1}}">
     <view class="vo-total">整套兑换：¥{{total}}
     </view>
-    <view class="vo-btn">立即兑换
+    <view class="vo-btn" bindtap='pay2money' data-pid="{{total_pid}}">立即兑换
     </view>
   </view>
 </view>

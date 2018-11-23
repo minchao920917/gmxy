@@ -37,7 +37,7 @@
 
 .teacher .te-pic image {
   width: 100%;
-  height: 220rpx;
+  height: 180rpx;
 }
 
 .te-name {

@@ -1,10 +1,9 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/broadcast/index",
     "pages/mine/index",
-      "pages/course/index",
+    "pages/course/index",
     "pages/contactus/index",
     "pages/footer/footer",
     "pages/contact/contact",
@@ -15,13 +14,11 @@
     "pages/order/index",
     "pages/coursedetail/index",
     "pages/products/index",
-    "pages/Demo/index",
- 
     "pages/hot/index",
+    "pages/downApp/index",
     "pages/videos/index",
     "pages/bindPhone/index",
     "pages/productdetail/index",
-    "pages/downApp/index",
     "pages/reportDetail/index"
   ],
   "window": {

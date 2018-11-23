@@ -1,7 +1,8 @@
 <!--pages/downApp/index.wxml-->
-<view>
-
-  <web-view src="https://android.myapp.com/myapp/detail.htm?apkName=com.jyzqsz.stock&ADTAG=mobile">
-
-  </web-view>
+<view class="down-app">
+  <view class="step step1">1、长按下方二维码，点击保存图片至手机相册</view>
+  <image src="../../images/hand.png" class="hand"></image>
+  <image src="../../images/downLoad.png" data-href="https://xcx.ngjjtg.com/public/images/appdown.png" bindlongtap='saveImg' class="erweima"></image>
+  <view class="step step2">2、打开微信或者手机浏览器，点击二维码扫一扫功能，选择手机相册中的二维码图片</view>
+  <view class="step step3">3、点击立即下载（苹果用户跳转至 APP store）</view>
 </view>

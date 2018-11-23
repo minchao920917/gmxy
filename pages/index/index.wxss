@@ -1,4 +1,7 @@
 /**index.wxss**/
+.main{
+  /* height: 100vh; */
+}
 
 .swiper {
   height: 300rpx;
@@ -9,7 +12,7 @@
   height: 300rpx;
 }
 
-.navs {
+.navs { 
   display: flex;
   flex-flow: row wrap;
   background: #fff;

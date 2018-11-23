@@ -34,15 +34,15 @@ Page({
       linkUrl: '/pages/contact/contact'
     }],
     navFooter: [{
-        imgUrl: '../../images/index.png',
+        imgUrl: '../../images/index_black.png',
         txt: '首页',
-        active: 'active',
+        active: '',
       linkUrl: '/pages/index/index'
       },
       {
-        imgUrl: '../../images/sy_my_black.png',
+        imgUrl: '../../images/sy_my.png',
         txt: '我的',
-        active: '',
+        active: 'active',
         linkUrl: '/pages/mine/index'
       }
     ]

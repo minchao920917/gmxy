@@ -32,7 +32,6 @@ Page({
   getList: function (page) {
 
     var that = this;
-    // console.log("第" + page +"页");
     that.setData({
       loadingTip: "加载中",
       hiddenLoading: false
@@ -47,7 +46,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        // console.log(res.data.data);
         if (res.data.data.length == 0) {
           that.setData({
             loadingTip: "已加载到底部",
@@ -73,7 +71,6 @@ Page({
   * 获取更多
   */
   getScroll: function (e) {
-    // console.log("向下滑动");
     this.setData({
       page: this.data.page + 1,
       loadingTip: "加载中..."
@@ -81,15 +78,10 @@ Page({
     this.getList(this.data.page);
   },
   scroll: function (e) {
-    if (this.videoContext){
-      // console.log(e.detail.scrollTop + e.detail.scrollHeight);
-      // console.log((parseInt(this.data.playIndex) + 2) * 263);
-      if (e.detail.scrollTop > (parseInt(this.data.playIndex) + 1) * 263 ){
-        this.videoContext.pause();
-      }else{
-        this.videoContext.play();
-      }
-    }
+    this.videoContext.pause();
+    this.setData({
+      playIndex:-1
+    })
   },
 
   //播放视频
@@ -97,7 +89,6 @@ Page({
     var that =this;
     var id = e.currentTarget.dataset.videoid.split("-")[1];
     var vId = e.currentTarget.dataset.vid;
-    // console.log(e.currentTarget.dataset);
     wx.request({
       method: 'POST',
       url: util.getDomain + '/wxxcx/index/addVedioClick',
@@ -125,7 +116,6 @@ Page({
   },
   //videoErrorCallback
   videoErrorCallback: function (e) {
-    console.log('视频错误信息:' + e.detail.errMsg);
   },
  
   /**

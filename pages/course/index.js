@@ -48,13 +48,9 @@ Page({
    */
   onLoad: function(options) {
     this.getV(this.data.vpage);
-
     this.getR(this.data.rpage,app.data.uid);
-    
-   
   },
   checkPhone: function (openId) {
-    console.log(openId);
     wx.request({
       method: 'POST',
       url: util.getDomain1 + '/wxxcx/xcxapi/isappcustomer',
@@ -70,7 +66,7 @@ Page({
             title: '提示',
             content: '绑定手机号获取更多精彩内容',
             cancelText: "先逛逛",
-            cancelColor: 'skyblue',
+            // cancelColor: 'skyblue',
             confirmText: "去绑定",
             confirmColor: '#D1141B ',
             success: function (res) {
@@ -79,7 +75,6 @@ Page({
                   url: '/pages/bindPhone/index'
                 })
               } else if (res.cancel) {
-                //console.log('点击取消')
               }
             }
           })
@@ -100,11 +95,9 @@ Page({
     })
   },
   upper:function(e){
-    // console.log("向上滑动");
-    // console.log(e.detail);
+
   },
   getScroll:function(e){
-    // console.log("向下滑动");
     this.setData({
       vpage: this.data.vpage + 1,
       loadingTip:"加载中..."
@@ -113,7 +106,6 @@ Page({
 
   },
   getRScroll: function (e) {
-    // console.log("向下滑动");
     this.setData({
       rpage: this.data.rpage + 1,
       loadingTip:"加载中..."
@@ -126,7 +118,6 @@ Page({
     that.setData({
       hiddenLoading: false
     })
-    console.log("视频第" + page + "页");
     wx.request({
       method: 'POST',
       url: util.getDomain + '/wxxcx/index/vedioIndex',
@@ -137,7 +128,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data.data.free_list);
         if (res.data.data.list.length == 0){
           that.setData({
             loadingTip:"已加载到底部",
@@ -167,13 +157,11 @@ Page({
       if (app.data.phone == "") {//没获取到手机号和uid
         this.checkPhone(app.data.oppenId);
       }
-
     }
     var that = this;
     that.setData({
       hiddenLoading: false
     })
-    console.log("研报第"+page+"页");
     wx.request({
       method: 'POST',
       url: util.getDomain + '/wxxcx/index/reportIndex',
@@ -185,7 +173,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data);
         if (res.data.data.list.length == 0) {
           that.setData({
             loadingTip: "已加载到底部",
@@ -220,15 +207,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-
+  onShow: function () {
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
-
+  onHide: function(index) {
+    
   },
 
   /**
@@ -259,7 +245,6 @@ Page({
 
   },
   jump2report:function(e){
-    console.log(e);
     if (e.currentTarget.dataset.is_payed === 1){//已经解锁直接跳转新闻
       wx.navigateTo({
         url: '/pages/reportDetail/index?id=' + e.currentTarget.dataset.id
@@ -273,28 +258,110 @@ Page({
     }
   },
   pay2money: function (e) {
-    console.log(e);
-    var timeStamp = String(Date.parse(new Date())/1000);
-    console.log(timeStamp);
-    var payDataA = "appId=" + app.data.appId + "&nonceStr=" + 'sss' + "&package=prepay_id=" + 'preid' + "&signType=MD5&timeStamp=" + timeStamp;
-    var payDataB = payDataA + "&key=" + app.data.secret; 
-    wx.requestPayment(
-      {
-        'timeStamp': timeStamp,
-        'nonceStr': 'sss',
-        'package': 'preid',
-        'signType': 'MD5',
-        'paySign': MD5Util.MD5(payDataB).toUpperCase(),
-        'success': function (res) { 
-          console.log("成功!");
-        },
-        'fail': function (res) {
-          console.log("失败");
-          console.log(res);
-         },
-        'complete': function (res) {
-          console.log("完成");
-         }
+    var index = e.currentTarget.dataset.index;
+    if (app.data.uid === ''){
+      wx.showModal({
+        title: '提示',
+        content: '绑定手机号获取更多精彩内容',
+        cancelText: "先逛逛",
+        // cancelColor: 'skyblue',
+        confirmText: "去绑定",
+        confirmColor: '#D1141B ',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/bindPhone/index'
+            })
+          } else if (res.cancel) {
+          }
+        }
       })
-  }
+    }else{
+      var that = this;
+      wx.request({
+        method: 'POST',
+        url: util.getDomain + '/wxxcx/index/addOrder',
+        data: {
+          type: 2,
+          openId: app.data.oppenId,
+          uid: app.data.uid,
+          p_id: e.currentTarget.dataset.id
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          var order_sn = res.data.data.order_sn;
+          if (res.data.code === 1) {
+            wx.requestPayment(
+              {
+                'timeStamp': '' + res.data.data.timeStamp,
+                'nonceStr': res.data.data.nonceStr,
+                'package': res.data.data.package,
+                'signType': 'MD5',
+                'paySign': res.data.data.paySign,
+                'success': function (res) {//支付成功时触发
+                  if (res.errMsg == "requestPayment:ok") {
+                    wx.request({
+                      method: 'POST',
+                      url: util.getDomain + '/wxxcx/index/changeOrderStatus',
+                      data: {
+                        uid: app.data.uid,
+                        order_sn: order_sn
+                      },
+                      header: {
+                        'content-type': 'application/json' // 默认值
+                      },
+                      success: function (res) {
+                        if (res.data.code === 1) {
+                          wx.showToast({
+                            title: '解锁成功',
+                            icon: 'success',
+                            duration: 2000
+                          })
+                          that.data = {
+                            hiddenLoading: false,
+                            loadingTip: "加载中",
+                            scrollTop: 0,
+                            getDomain: util.getDomain,
+                            vpage: 1,
+                            rpage: 1,
+                            vfreeList: [],
+                            vList: [],
+                            rfreeList: [],
+                            rList: [],
+                            currentTab: 0
+                          }
+                          that.onLoad();
+                        } else {
+                          wx.showToast({
+                            title: '解锁失败',
+                            icon: 'loading',
+                            duration: 2000
+                          })
+
+                        }
+                      }
+                    })
+                  }
+
+                },
+                'fail': function (res) {//取消支付时触发
+                  if (res.errMsg == "requestPayment:fail cancel") {
+                    wx.showToast({
+                      title: '取消付款',
+                      icon: 'loading',
+                      duration: 2000
+                    })
+                  }
+
+                }
+              })
+          }
+        }
+      })
+    }
+
+
+  },
 })

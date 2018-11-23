@@ -1,7 +1,7 @@
-var domain = "http://192.168.150.53:8080";//app李亚兰的本地测试环境
-// var domain = "http://app.ngjjtg.com";//app李亚兰的本地测试环境
+// var domain = "http://192.168.150.53:8080";//app李亚兰的本地测试环境
+var domain = "https://app.ngjjtg.com";//app李亚兰的本地测试环境
 // var domain1 = "http://192.168.150.241:9000";//用户信息相关的测试环境
-var domain1 = "http://www.ngjjtg.com";//用户信息相关的正式环境
+var domain1 = "https://xcx.ngjjtg.com/";//用户信息相关的正式环境
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1

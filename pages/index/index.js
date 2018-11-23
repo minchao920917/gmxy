@@ -64,17 +64,20 @@ Page({
         var appId = app.data.appId;
         var secret = app.data.secret;
         wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' +
-            appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
-          data: {},
-          header: {
-            'content-type': 'json'
+          method: 'POST',
+          url: util.getDomain1 + '/wxxcx/xcxapi/getUserInfo',
+          data: {
+            code: code
           },
-          success: function (res) {
-            app.data.oppenId = res.data.openid //返回openid
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            app.data.oppenId = res.data.data.openid //返回openid
             that.checkPhone(app.data.oppenId);
           }
-        })
+        });
+
       }
     }) 
 
@@ -114,12 +117,13 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        if (res.data.code === 0){
+
+        if (res.data.code === 0) {
           wx.showModal({
-            title: '提示',
-            content: '绑定手机号获取更多精彩内容',
+            title: '友情提示',
+            content: res.data.message+'。绑定手机号获取更多精彩内容',
             cancelText: "先逛逛",
-            cancelColor: 'skyblue',
+            // cancelColor: 'skyblue',
             confirmText: "去绑定",
             confirmColor: '#D1141B ',
             success: function (res) {
@@ -131,10 +135,11 @@ Page({
               }
             }
           })
-        } else if (res.data.code === 1){
+        } else if (res.data.code === 1) {
           app.data.phone = res.data.data.cellphone;
           app.data.uid = res.data.data.uid;
         }
+        
         
       }
     })
