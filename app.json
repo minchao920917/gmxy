@@ -24,7 +24,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#D1141B",
-    "navigationBarTitleText": "首页",
+    "navigationBarTitleText": "股管家",
     "navigationBarTextStyle": "#fff"
   },
   "networkTimeout": {

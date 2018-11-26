@@ -33,16 +33,17 @@
       </navigator>
     </view>
     <view class="sp">
-      <video id="video" class="video" src="{{video.url}}" controls="false" bindtap="play"  binderror="videoErrorCallback">
-        <cover-view  hidden="{{isPaly}}">
-          <cover-image class="img" src="{{getDomain}}{{video.cover}}" />
-          <cover-view class="playing">
-            <cover-image bindtap='PlayVoid' src="{{btn}}" />
-          </cover-view>
-        </cover-view>
+      <video wx:if="{{isPaly}}" id="video" class="video" src="{{video.url}}" controls="false"   binderror="videoErrorCallback">
       </video>
+      <view  wx:if="{{!isPaly}}">
+          <image class="img" src="{{getDomain}}{{video.cover}}" ></image>
+          <view class="playing">
+            <image bindtap='PlayVoid' src="{{btn}}" ></image>
+          </view>
+        </view>
     </view>
   </view>
+  <view style="height:50rpx;"></view>
   <!-- 底部模板 -->
   <include src="../footer/footer.wxml" />
 

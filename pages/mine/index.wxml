@@ -5,11 +5,12 @@
     <open-data class="name" type="userNickName" lang="zh_CN"></open-data>
   </view>
   <view class="clearfix"></view>
-  <view >
+
 
    <view wx:if="{{phone}}" class="bind">绑定手机号：{{phone}}</view>
-  <navigator wx:else url="/pages/bindPhone/index" class="bind">点击去绑定手机号</navigator>
-   </view>
+    <view wx:else="{{!phone}}">
+      <navigator url="/pages/bindPhone/index" class="bind">点击去绑定手机号</navigator>
+    </view>
   <!-- fast-nav -->
   <view class="fast-nav">
     <block wx:for="{{fastnav}}" wx:key='fastnav'>

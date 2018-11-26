@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options);
+    // console.log(options);
     this.setData({
       total_pid: options.pid
     });
@@ -51,7 +51,7 @@ Page({
         if (!res.data.data.list){
           wx.showToast({
             title: "未获取到课程列表",
-            icon: 'loading',
+            icon: 'none',
             duration: 1500
           });
           setTimeout(function(){
@@ -92,14 +92,14 @@ Page({
     this.videoContext.pause();
   },
   play: function(e) {
-    console.log(e.currentTarget.dataset.is_payed);
+    // console.log(e.currentTarget.dataset.is_payed);
     if (e.currentTarget.dataset.is_payed === 2) { //未解锁
       wx.showToast({
         title: "该课程您还未解锁，不能访问",
-        icon: 'loading',
+        icon: 'none',
         duration: 1500
       })
-      console.log(111);
+      // console.log(111);
     }else{
       if (this.data.isPaly) {
 
@@ -125,12 +125,10 @@ Page({
     } else if (e.currentTarget.dataset.is_payed === 2) { //未解锁
       wx.showToast({
         title: "该课程您还未解锁，不能访问",
-        icon: 'loading',
+        icon: 'none',
         duration: 1500
       })
-      this.setData({
-        isPaly: !this.data.isPaly
-      })
+     
     }
   },
   bf2video: function(e) {
@@ -145,7 +143,7 @@ Page({
     } else if (e.currentTarget.dataset.is_payed === 2) { //未解锁
       wx.showToast({
         title: "该课程您还未解锁，不能访问",
-        icon: 'loading',
+        icon: 'none',
         duration: 1500
       })
     }
@@ -155,11 +153,9 @@ Page({
     if (app.data.uid === '') {
       wx.showModal({
         title: '提示',
-        content: '绑定手机号获取更多精彩内容',
+        content: '您需绑定手机号成为股管家app用户，绑定后获取更多精彩内容！',
         cancelText: "先逛逛",
-        // cancelColor: 'skyblue',
         confirmText: "去绑定",
-        confirmColor: '#D1141B ',
         success: function (res) {
           if (res.confirm) {
             wx.navigateTo({
@@ -229,7 +225,7 @@ Page({
                         } else {
                           wx.showToast({
                             title: '解锁失败',
-                            icon: 'loading',
+                            icon: 'none',
                             duration: 2000
                           })
 
@@ -242,8 +238,8 @@ Page({
                 'fail': function (res) {//取消支付时触发
                   if (res.errMsg == "requestPayment:fail cancel") {
                     wx.showToast({
-                      title: '取消付款',
-                      icon: 'loading',
+                      title: '取消了付款',
+                      icon: 'none',
                       duration: 2000
                     })
                   }
@@ -270,7 +266,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    console.log("刷新");
+    // console.log("刷新");
     wx.startPullDownRefresh()
   },
 

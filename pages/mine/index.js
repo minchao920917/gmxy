@@ -86,5 +86,14 @@ Page({
 
       }
     })
+  },
+  jump2page: function (e) {
+    if ("/" + this.route === e.currentTarget.dataset.url) {
+      return;
+    } else {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url,
+      })
+    }
   }
 })

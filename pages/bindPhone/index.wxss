@@ -20,7 +20,9 @@
 }
 
 .send {
+  min-width: 130rpx;
   width: 130rpx;
+  text-align: center;
   height: 40rpx;
   line-height: 43rpx;
   padding: 6rpx 23rpx;

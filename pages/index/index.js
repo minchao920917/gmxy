@@ -117,15 +117,12 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-
         if (res.data.code === 0) {
           wx.showModal({
             title: '友情提示',
-            content: res.data.message+'。绑定手机号获取更多精彩内容',
+            content: '您需绑定手机号成为股管家app用户，绑定后获取更多精彩内容！',
             cancelText: "先逛逛",
-            // cancelColor: 'skyblue',
             confirmText: "去绑定",
-            confirmColor: '#D1141B ',
             success: function (res) {
               if (res.confirm) {
                 wx.navigateTo({
@@ -176,15 +173,24 @@ Page({
   videoErrorCallback: function(e) {
 
   },
-  play: function() {
-    if (this.data.isPaly) {
-      this.videoContext.pause();
-    } else {
-      this.videoContext.play();
+  jump2page: function (e) {
+    if ("/"+this.route === e.currentTarget.dataset.url){
+    }else{
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url,
+      })
     }
-    this.setData({
-      isPaly: !this.data.isPaly
-    })
   }
+  // ,
+  // play: function() {
+  //   if (this.data.isPaly) {
+  //     this.videoContext.pause();
+  //   } else {
+  //     this.videoContext.play();
+  //   }
+  //   this.setData({
+  //     isPaly: !this.data.isPaly
+  //   })
+  // }
 
 })

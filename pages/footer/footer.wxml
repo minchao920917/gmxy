@@ -3,10 +3,10 @@
   <view class="foot-navs">
     <block wx:for="{{navFooter}}" wx:key='nav'>
       <view class="list">
-        <navigator url="{{item.linkUrl}}">
+        <view data-url="{{item.linkUrl}}" bindtap='jump2page'>
           <image src="{{item.imgUrl}}"></image>
           <text class="{{item.active}}">{{item.txt}}</text>
-        </navigator>
+        </view>
       </view>
     </block>
     <view class="zg">

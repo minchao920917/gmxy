@@ -64,11 +64,9 @@ Page({
         if (res.data.code === 0) {
           wx.showModal({
             title: '提示',
-            content: '绑定手机号获取更多精彩内容',
+            content: '您需绑定手机号成为股管家app用户，绑定后获取更多精彩内容！',
             cancelText: "先逛逛",
-            // cancelColor: 'skyblue',
             confirmText: "去绑定",
-            confirmColor: '#D1141B ',
             success: function (res) {
               if (res.confirm) {
                 wx.navigateTo({
@@ -252,7 +250,7 @@ Page({
     } else if (e.currentTarget.dataset.is_payed === 2){//未解锁，弹出提示
           wx.showToast({
             title: "该研报您还未解锁，不能访问",
-            icon: 'loading',
+            icon: 'none',
             duration: 1500
           })
     }
@@ -262,11 +260,9 @@ Page({
     if (app.data.uid === ''){
       wx.showModal({
         title: '提示',
-        content: '绑定手机号获取更多精彩内容',
+        content: '您需绑定手机号成为股管家app用户，绑定后获取更多精彩内容！',
         cancelText: "先逛逛",
-        // cancelColor: 'skyblue',
         confirmText: "去绑定",
-        confirmColor: '#D1141B ',
         success: function (res) {
           if (res.confirm) {
             wx.navigateTo({
@@ -336,7 +332,7 @@ Page({
                         } else {
                           wx.showToast({
                             title: '解锁失败',
-                            icon: 'loading',
+                            icon: 'none',
                             duration: 2000
                           })
 

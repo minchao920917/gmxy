@@ -3,9 +3,8 @@
 .main {
   font-size: 0.8rem;
   background: #efeef3;
-  padding-bottom: 50rpx;
+  height: 100vh;
   max-width: 750rpx;
-  overflow-x: hidden;
 }
 
 /* footer模块样式 */
@@ -16,6 +15,7 @@
   width: 100%;
   background: #efeef3;
   display: block;
+  z-index: 2000;
 }
 
 .foot-navs {
@@ -26,8 +26,8 @@
   flex-flow: row wrap;
   background: #fff;
   align-items: center;
-  height: 98rpx;
-  padding: 5rpx 0;
+  /* height: 98rpx; */
+  padding: 15rpx 0;
 }
 
 .foot-navs .list {
@@ -127,4 +127,8 @@
   background-size: contain;
   background-position: center;
   margin-right: 10rpx;
+}
+
+.navigator-hover{
+  color:blue;
 }

@@ -33,7 +33,7 @@ Page({
       },
       success: function (res) { 
         var str = res.data.data.content;
-        var imgStr = "<img width='100%' height = 'auto'";
+        var imgStr = "<img style='width: 100%; height: auto'";
         var urlStr = util.getDomain + "/uploads";
         str = str.replace(/\/uploads/g, urlStr);
           that.setData({

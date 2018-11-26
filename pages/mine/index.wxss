@@ -38,15 +38,14 @@
   width: 710rpx;
   line-height: 120rpx;
   height: 120rpx;
+  margin:0 auto;
   background: #fff;
   border-radius: 8rpx;
   font-size: 32rpx;
   text-indent: 30rpx;
   color: #d1141b;
-  position: relative;
-  left: 50%;
-  margin-left: -355rpx;
-  top: -30rpx;
+  margin-top: -30rpx;
+  margin-bottom: 20rpx;
   font-weight: 600;
   text-align:left;
 }
