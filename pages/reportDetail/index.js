@@ -28,13 +28,14 @@ Page({
       url: util.getDomain + '/wxxcx/index/reportIndexDetail',
       data: {
         r_id: options.id,
-        uid:app.data.uid,
-        domain: util.getDomain
+        uid:app.data.uid
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        console.log(res);
+        console.log(res.data.content);
         var str = res.data.data.content;
         var imgStr = "<img style='width: 100%; height: auto'";
         var urlStr = util.getDomain+"/uploads";

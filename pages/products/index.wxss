@@ -162,14 +162,14 @@
 }
 
 .intro .img image {
-  width: 188rpx;
-  height: 250rpx;
+  width: 200rpx;
+  height: 200rpx;
 }
 
 .intr-right {
   float: left;
   height: 250rpx;
-  width: 413rpx;
+  width: 400rpx;
   overflow: hidden;
   padding-left: 30rpx;
 }

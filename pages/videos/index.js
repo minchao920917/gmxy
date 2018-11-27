@@ -111,5 +111,10 @@ Page({
       loadingTip: "加载中..."
     });
     this.getList(this.data.page);
+  },
+  onHide:function(){
+    if (this.videoContext) {
+      this.videoContext.pause();
+    }
   }
 })

@@ -60,3 +60,7 @@ input {
     color: #D1141B;
     letter-spacing: 0;
   }
+  .icon image{
+    width: 48rpx;
+    height: 48rpx;
+  }

@@ -3,12 +3,16 @@
 <view id="regist">
     <view class="form">
       <view class="form-group">
-        <view class="icon icon-phone"></view>
+        <view class="icon icon-phone">
+          <image src="../../images/iphone.png"></image>
+        </view>
          <input type="number" maxlength="11" placeholder="请输入手机号" value="" bindinput ="mobileInput"/>
         <view class="send"  bindtap="send">{{msg}}</view>
       </view>
       <view class="form-group">
-        <view class="icon icon-message"></view>
+        <view class="icon icon-message">
+           <image src="../../images/me.png"></image>
+        </view>
         <input type="number" placeholder="请输入密码" maxlength="6" value="" bindinput ="codeInput"/>
         <view wx:if="{{count>0}}" class="time">重新发送({{count}}s)</view>
       </view>
