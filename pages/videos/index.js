@@ -1,23 +1,42 @@
-// pages/videos/index.js
+//index.js
 var util = require('../../utils/util.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    curr_id: '',
     hiddenLoading: false,
     loadingTip: "加载中...",
-    page:0,
-    playIndex:-1,
+    page: 0,
+    playIndex: -1,
     getDomain: util.getDomain,
-    videoList:[],
+    videoList: [],
     isPaly: false
   },
+  onReady: function () {
+    this.videoContext = wx.createVideoContext('myVideo')
+  },
+  videoPlay(e) {
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    wx.request({
+      method: 'POST',
+      url: util.getDomain + '/wxxcx/index/addVedioClick',
+      data: {
+        id: id
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        that.setData({
+          curr_id: e.currentTarget.dataset.id,
+        })
+        that.videoContext.play()
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+      }
+    })
+
+
+  },
   onLoad: function (options) {
     var that = this;
     that.setData({
@@ -57,13 +76,13 @@ Page({
               hiddenLoading: true
             });
           }, 1000);
-        } else{
+        } else {
           that.setData({
             hiddenLoading: true,
             videoList: that.data.videoList.concat(res.data.data)
           })
         }
-        
+
       }
     })
   },
@@ -78,92 +97,19 @@ Page({
     this.getList(this.data.page);
   },
   scroll: function (e) {
-    this.videoContext.pause();
-    this.setData({
-      playIndex:-1
-    })
+    if (this.videoContext) {
+      this.videoContext.pause();
+    }
+    // this.setData({
+    //   curr_id:' '
+    // })
   },
 
-  //播放视频
-  PlayVoid: function (e) {
-    var that =this;
-    var id = e.currentTarget.dataset.videoid.split("-")[1];
-    var vId = e.currentTarget.dataset.vid;
-    wx.request({
-      method: 'POST',
-      url: util.getDomain + '/wxxcx/index/addVedioClick',
-      data: {
-        id: vId
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        that.setData({
-          playIndex: id
-        })
-        if (that.videoContext) {
-          that.videoContext.pause();
-        }
-
-        that.videoContext = wx.createVideoContext(e.currentTarget.dataset.videoid);
-        that.videoContext.play();
-        
-      }
-    })
-
-
-  },
-  //videoErrorCallback
-  videoErrorCallback: function (e) {
-  },
- 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    this.videoContext.pause();
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.setData({
+      page: this.data.page + 1,
+      loadingTip: "加载中..."
+    });
+    this.getList(this.data.page);
   }
 })

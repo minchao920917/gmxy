@@ -50,7 +50,7 @@
 
 .foot-navs .list text {
   display: block;
-  font-size: 28rpx;
+  font-size: 22rpx;
   color: #535353;
 }
 

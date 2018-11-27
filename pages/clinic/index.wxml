@@ -47,8 +47,9 @@
   </view>
 
 
-
-  <!-- 底部模板 -->
-  <include src="../footer/footer.wxml" />
+<view style="height:100rpx;"></view>
+ 
 
 </view>
+ <!-- 底部模板 -->
+  <include src="../footer/footer.wxml" />

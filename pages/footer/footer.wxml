@@ -10,9 +10,9 @@
       </view>
     </block>
     <view class="zg">
-      <navigator url="../clinic/index">
+      <view data-url="/pages/clinic/index" bindtap='jump2page'>
         <image src="../../images/zhengu.gif"></image>
-      </navigator>
+      </view>
     </view>
   </view>
 </view>

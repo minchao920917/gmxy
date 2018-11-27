@@ -7,7 +7,8 @@ App({
     uid: '',
     appId: 'wxa4eebda73bdb1d53',
     secret: 'b56e3746ee698da5c67908209a0bc279',
-    oppenId: ''
+    oppenId: '',
+    utitle:''
     //请求地址
   },
 

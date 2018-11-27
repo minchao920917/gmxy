@@ -1,6 +1,7 @@
 /* index.wxss */
 .main{
   background: #fff;
+  height: 100%;
 }
 .banner image {
   width: 100%;

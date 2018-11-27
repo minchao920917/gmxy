@@ -1,1 +1,61 @@
-/* pages/Demo/index.wxss */
+/*index.wxss*/
+.videos{
+    background: #efeef3;
+}
+.video-box{
+  padding: 15rpx 30rpx;
+  background: #fff;
+  margin-top: 10rpx;
+  width: 690rpx;
+  overflow: hidden;
+}
+
+.video{
+	/* margin-bottom: 40rpx; */
+	position: relative;
+
+}
+#myVideo{
+  width: 690rpx;
+	height: 345rpx;
+}
+
+.model-img{
+  width: 690rpx;
+	height: 345rpx;
+}
+.model-btn{
+	position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    background-color: rgba(0,0,0,.3);
+}
+.play-icon{
+    margin:28rpx 42rpx;
+    border-top:26rpx solid transparent;
+    border-left:36rpx solid #fff;
+    border-bottom:22rpx solid transparent;
+}
+
+.sp-tit {
+  font-size: 28rpx;
+  color: #353535;
+  letter-spacing: 0.88px;
+  margin-bottom: 10rpx;
+}
+
+.sp-time {
+  font-size: 24rpx;
+  color: #6C6C6C;
+  letter-spacing: 0.75px;
+  margin: 18rpx 0 0 0;
+}
+.frequency{
+  float:right;
+}

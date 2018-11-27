@@ -1,23 +1,25 @@
-<view class="section">
-  <view class="section__title">vertical scroll</view>
-  <scroll-view scroll-y style="height: 200px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view id="green" class="scroll-view-item bc_green"></view>
-    <view id="red"  class="scroll-view-item bc_red"></view>
-    <view id="yellow" class="scroll-view-item bc_yellow"></view>
-    <view id="blue" class="scroll-view-item bc_blue"></view>
+<!--index.wxml-->
+<view class="videos">
+  <loading hidden="{{hiddenLoading}}">{{loadingTip}}</loading>
+  <scroll-view scroll-y="true" class="sp-list" scroll-top="{{scrollTop}}" bindscrolltolower="getScroll" lower-threshold="100" bindscrolltoupper="upper" bindscroll="scroll" upper-threshold="200" scroll-with-animation="true">
+    <view class="video-box" wx:for="{{videoList}}" wx:key="unique">
+      <view class='sp-tit'>{{item.title}}</view>
+      <view class="video-container">
+        <view class="video" data-id="{{item.id}}" bindtap="videoPlay">
+          <video wx:if="{{curr_id == item.id}}" id="myVideo" id="myVideo" src="{{item.content}}" poster="{{getDomain}}{{item.cover}}" objectFit="cover" controls></video>
+          <view wx:else>
+            <image class="model-img" mode="aspectFill" src="{{getDomain}}{{item.cover}}"></image>
+            <view class="model-btn">
+              <view class="play-icon"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="sp-time">
+        <text class="time">{{item.time_stamp}}</text>
+        <text class="frequency">播放次数{{item.click}}次</text>
+      </view>
+    </view>
   </scroll-view>
 
-  <view class="btn-area">
-    <button size="mini" bindtap="tap">click me to scroll into view </button>
-    <button size="mini" bindtap="tapMove">click me to scroll</button>
-  </view>
-</view>
-<view class="section section_gap">
-  <view class="section__title">horizontal scroll</view>
-  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
-    <view id="green" class="scroll-view-item_H bc_green"></view>
-    <view id="red"  class="scroll-view-item_H bc_red"></view>
-    <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
-    <view id="blue" class="scroll-view-item_H bc_blue"></view>
-  </scroll-view>
 </view>

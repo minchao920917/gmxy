@@ -58,6 +58,7 @@
 .title{
   height: 50rpx;
   padding: 30rpx;
+  padding-left: 0;
 }
 
 .shipin .sp-tit {

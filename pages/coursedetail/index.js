@@ -174,7 +174,9 @@ Page({
           type: 1,
           openId: app.data.oppenId,
           uid: app.data.uid,
-          p_id: e.currentTarget.dataset.pid
+          p_id: e.currentTarget.dataset.pid,
+          phone: app.data.phone,
+          utitle: app.data.utitle,
         },
         header: {
           'content-type': 'application/json' // 默认值

@@ -1,5 +1,6 @@
 // index.js
 //获取应用实例
+var util = require('../../utils/util.js');
 var app = getApp();
 
 //正则验证
@@ -45,16 +46,16 @@ Page({
       }
     ],
     navFooter: [{
-        imgUrl: '../../images/index.png',
+        imgUrl: '../../images/index_black.png',
         txt: '首页',
-        active: 'active',
+        active: '',
         linkUrl: '/pages/index/index'
       },
       {
         imgUrl: '../../images/sy_my_black.png',
         txt: '我的',
         active: '',
-        linkUrl: '/pages/index/index'
+        linkUrl: '/pages/mine/index'
       }
     ],
     cleanval: ''
@@ -103,22 +104,28 @@ Page({
     //数据提交
     if (flag) {
       wx.request({
-        url: app.data.weburl + 'api/stock/addPhone', //接口地址
+        url: util.getDomain1 + '/wxxcx/xcxapi/addExtraInfo', //接口地址
         data: { //接口接受的字段
           phone: telval,
           appId: 2,
           name: '',
-          code: codeval
+          gp_code: codeval
         },
         header: {
           'content-type': 'application/json'
         },
         method: 'POST',
         success: function(res) {
-          that.setData({
-            cleanval: ''
-          });
-          tips('提交成功，稍后我们会有客服人员与您联系！');
+          if(res.data.code === 1){
+            that.setData({
+              cleanval: ''
+            });
+            tips('提交成功，稍后我们会有客服人员与您联系！');
+          }
+          if(res.data.code === 2){
+            tips('已提交，请勿重复提交诊股信息');
+          }
+          
         },
         fail: function(res) {
           tips('提交失败！');
@@ -128,7 +135,14 @@ Page({
 
   },
 
-
+  jump2page: function (e) {
+    if ("/" + this.route === e.currentTarget.dataset.url) {
+    } else {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url,
+      })
+    }
+  },
 
   //调用服务热线
   PhoneCall: app.PhoneCall

@@ -1,55 +1,48 @@
-/* pages/videos/index.wxss */
-vides{
-
+/*index.wxss*/
+.vidoes{
+  /* height:100vh; */
 }
-.sp-list {
-  background: #efeef3;
-
-  height: 100vh;
-}
-
-.sp {
+.video-box{
   padding: 15rpx 30rpx;
   background: #fff;
   margin-top: 10rpx;
-  overflow: hidden;
-  position: relative;
-  height: 410rpx;
   width: 690rpx;
-}
-
-.sp .video, .sp .img {
-  width: 690rpx;
-  height: 345rpx;
-  position: absolute;
   overflow: hidden;
 }
-.sp .video{
-  z-index: 222!important;
-  float:left;
+.sp-list{
+   /* height:100vh; */
 }
-.sp .img{
-  z-index: 999!important;
+.video{
+	/* margin-bottom: 40rpx; */
+	position: relative;
+
 }
-.playing {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 136rpx;
-  height: 136rpx;
-  display: block;
-  margin-left: -68rpx;
-  margin-top: -68rpx;
-  background: rgba(0, 0, 0, 0);
-  border: none !important;
-  border-radius: 0;
-  z-index: 1000!important;
+#myVideo{
+  width: 690rpx;
+	height: 345rpx;
 }
 
-.playing image {
-  width: 136rpx;
-  height: 136rpx;
-  border: none !important;
+.model-img{
+  width: 690rpx;
+	height: 345rpx;
+}
+.model-btn{
+	position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    background-color: rgba(0,0,0,.3);
+}
+.play-icon{
+    margin:28rpx 42rpx;
+    border-top:26rpx solid transparent;
+    border-left:36rpx solid #fff;
+    border-bottom:22rpx solid transparent;
 }
 
 .sp-tit {
@@ -63,6 +56,7 @@ vides{
   font-size: 24rpx;
   color: #6C6C6C;
   letter-spacing: 0.75px;
+  margin: 18rpx 0 0 0;
 }
 .frequency{
   float:right;

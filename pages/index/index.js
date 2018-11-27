@@ -117,6 +117,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        // console.log(res);
         if (res.data.code === 0) {
           wx.showModal({
             title: '友情提示',
@@ -135,6 +136,7 @@ Page({
         } else if (res.data.code === 1) {
           app.data.phone = res.data.data.cellphone;
           app.data.uid = res.data.data.uid;
+          app.data.utitle = res.data.data.utitle;
         }
         
         

@@ -45,7 +45,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.code === 0){
           wx.showToast({
             title: res.data.message,
@@ -100,7 +100,6 @@ Page({
   },
   bindPhone:function(){
     var that = this;
-    console.log(that);
     var codeReg = /^\d{6}$/;
     if (!codeReg.test(that.data.code)) {
       wx.showToast({
@@ -123,7 +122,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data);
+        // console.log(res.data);
         
           wx.showToast({
             title: res.data.message,

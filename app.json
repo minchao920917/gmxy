@@ -16,8 +16,9 @@
     "pages/products/index",
     "pages/hot/index",
     "pages/downApp/index",
-    "pages/videos/index",
     "pages/bindPhone/index",
+    "pages/demo/index",
+    "pages/videos/index",
     "pages/productdetail/index",
     "pages/reportDetail/index"
   ],

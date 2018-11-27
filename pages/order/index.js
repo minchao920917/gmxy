@@ -10,7 +10,8 @@ Page({
     orderList: [],
     loadingTip: "加载中...",
     page: 0,
-    getDomain: util.getDomain
+    getDomain: util.getDomain,
+    test:0
 
   },
 
@@ -31,8 +32,8 @@ Page({
               url: '/pages/bindPhone/index'
             })
           } else if (res.cancel) {
-            wx.navigateTo({
-              url: '/pages/mine/index'
+            wx.navigateBack({
+              delta:1
             })
           }
         }
@@ -68,17 +69,43 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+     
         if (res.data.data.length == 0) {
-          that.setData({
-            loadingTip: "已加载到底部",
-            hiddenLoading: false,
-            page: that.data.page - 1
-          });
-          setInterval(function () {
+          if (page === 1) {
             that.setData({
               hiddenLoading: true
             });
-          }, 1000);
+            wx.showModal({
+              title: '友情提示',
+              content: '您当前订单列表为空！',
+              cancelText: "返回",
+              confirmText: "去购买",
+              success: function (res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/course/index'
+                  })
+                } else if (res.cancel) {
+                  wx.navigateTo({
+                    url: '/pages/mine/index'
+                  })
+                }
+              }
+            })
+            
+          }else{
+            that.setData({
+              loadingTip: "已加载到底部",
+              hiddenLoading: false,
+              page: that.data.page - 1
+            });
+            setInterval(function () {
+              that.setData({
+                hiddenLoading: true
+              });
+            }, 1000);
+          }
+          
         } else {
           that.setData({
             hiddenLoading: true,
@@ -115,6 +142,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    if(this.data.test ===1){//返回进
+      this.setData({
+        orderList: [],
+        loadingTip: "加载中...",
+        page: 0,
+        getDomain: util.getDomain,
+        test: 0
+      })
+      this.onLoad();
+    }
 
   },
 
@@ -122,7 +159,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    // console.log(2222);
+    this.setData({
+      test:1
+    })
   },
 
   /**

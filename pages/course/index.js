@@ -151,11 +151,11 @@ Page({
     })
   },
   getR: function (page,uid) {
-    if (!uid) {//存在openId
-      if (app.data.phone == "") {//没获取到手机号和uid
-        this.checkPhone(app.data.oppenId);
-      }
-    }
+    // if (!uid) {//存在openId
+    //   if (app.data.phone == "") {//没获取到手机号和uid
+    //     this.checkPhone(app.data.oppenId);
+    //   }
+    // }
     var that = this;
     that.setData({
       hiddenLoading: false
@@ -281,7 +281,9 @@ Page({
           type: 2,
           openId: app.data.oppenId,
           uid: app.data.uid,
-          p_id: e.currentTarget.dataset.id
+          p_id: e.currentTarget.dataset.id,
+          phone: app.data.phone,
+          utitle: app.data.utitle,
         },
         header: {
           'content-type': 'application/json' // 默认值

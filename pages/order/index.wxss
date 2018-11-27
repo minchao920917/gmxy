@@ -5,6 +5,7 @@
   padding: 20rpx ;
   height: 100vh;
   overflow-x: hidden;
+  width:710rpx;
 }
 
 
